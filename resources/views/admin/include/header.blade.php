@@ -210,21 +210,28 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{Auth::user()->name }} </span>
+              @if (Auth::guard('admin')->user()->image == '')                
+                <img src="{{ asset('admin') }}/dist/img/default_avatar.png" class="user-image" alt="User Image">
+              @else
+                <img src="{{ asset('uploads/images') }}/{{Auth::guard('admin')->user()->image }}" class="user-image" alt="User Image">
+              @endif
+                <span class="hidden-xs">{{Auth::user()->name }} </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                @if (Auth::guard('admin')->user()->image == '')                
+                  <img src="{{ asset('admin') }}/dist/img/default_avatar.png" class="img-circle" alt="User Image">
+                @else
+                  <img src="{{ asset('uploads/images') }}/{{Auth::guard('admin')->user()->image }}" class="img-circle" alt="User Image">
+                @endif
                 <p>
-                  {{Auth::user()->name }} - Web Developer
-                  <small>Member since Nov. 2012</small>
+                  {{Auth::user()->name }} 
+                  {{-- <small>Member since Nov. 2012</small> --}}
                 </p>
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              {{-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -237,11 +244,11 @@
                   </div>
                 </div>
                 <!-- /.row -->
-              </li>
+              </li> --}}
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a href="{{ asset('admin/profile') }}" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
                   <a href="{{ asset('admin/logout') }}" class="btn btn-default btn-flat">Sign out</a>
@@ -250,9 +257,9 @@
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
-          <li>
+          {{-- <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-          </li>
+          </li> --}}
         </ul>
       </div>
     </nav>

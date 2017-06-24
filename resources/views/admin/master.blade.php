@@ -34,7 +34,7 @@
     <div class="control-sidebar-bg"></div>
   </div>
   <!-- ./wrapper -->
-  @include('admin.include.script')
   @yield('script')
+  @include('admin.include.script')
 </body>
 </html>

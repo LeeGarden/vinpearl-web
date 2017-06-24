@@ -512,3 +512,10 @@
     </section>
     <!-- /.content -->
 @endsection
+@section('script')
+  <!-- Morris.js charts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="{{ asset('admin') }}/plugins/morris/morris.min.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{{ asset('admin') }}/dist/js/pages/dashboard.js"></script>
+@endsection
