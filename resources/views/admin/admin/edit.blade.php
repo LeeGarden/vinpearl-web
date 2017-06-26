@@ -1,6 +1,5 @@
 @extends('admin.master')
-@section('title') Role @endsection
-
+@section('page-title')Edit Admin @endsection
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">

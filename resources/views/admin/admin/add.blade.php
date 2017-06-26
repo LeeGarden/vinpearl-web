@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title') Staff @endsection
+@section('page-title')Add Admin @endsection
 
 @section('content-wrapper')
 
@@ -81,7 +81,9 @@
       <!-- /.box-body -->
       <div class="box-footer">
         <div class="col-sm-8">
-          <a href="{{ URL::route('admin.admin.list') }}" class="btn btn-default">Return List </a>
+          <div class="col-sm-3">
+            <a href="{{ URL::route('admin.admin.list') }}" class="btn btn-default pull-right">Return List </a>
+          </div>
           <button type="submit" class="btn btn-info pull-right">Add New</button>
         </div>
       </div>

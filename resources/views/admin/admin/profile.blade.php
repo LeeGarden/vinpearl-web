@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title') Admin @endsection
+@section('page-title') Admin Profile @endsection
 
 @section('content-wrapper')
 
