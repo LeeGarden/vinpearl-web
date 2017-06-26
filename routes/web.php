@@ -46,5 +46,9 @@ Route::group(['prefix'=>'admin'], function () {
             Route::get('add', ['as'=>'admin.admin.getAdd','uses'=>'AdminController@getAddAdmin']);  
             Route::post('add',['as'=>'admin.admin.postAdd','uses'=>'AdminController@postAddAdmin']);  
         });
+
+        Route::group(['prefix' => 'event'], function () { 
+            Route::get('add', ['as'=>'admin.event.add','uses'=>'EventController@getAdd']); 
+        });
     }); 
   });
