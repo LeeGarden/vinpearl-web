@@ -24,7 +24,7 @@
   <div class="box">
     <div class="box-header">
       @include('admin.include.message')
-        <a href="{{ URL::route('admin.role.getAdd') }}" class="btn btn-primary"> 
+        <a href="{{ URL::route('admin.event.getAdd') }}" class="btn btn-primary"> 
           <i class="fa fa-plus"></i> Add Event</a>
       <h3 class="box-title"></h3>
     </div>
@@ -34,15 +34,15 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Role</th>
+            <th>Title</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($listrole as $item)
+          @foreach ($listEvent as $item)
             <tr>
               <td>{{ $item['id']}}</td>
-              <td>{{ $item['roles']}}</td>
+              <td>{{ $item['title']}}</td>
               <td>
                 <a href="{{ asset('admin/role/edit') }}/{{ $item['id'] }}" title="Edit"><i class="fa fa-cog"></i></a>    
                 <a  data-toggle="modal" data-target="#del{{ $item['id'] }}" title="Delete"><i class="fa fa-trash-o"></i></a> 

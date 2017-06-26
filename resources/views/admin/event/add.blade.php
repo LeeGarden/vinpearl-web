@@ -34,6 +34,7 @@
             </div>
             
             <form class="form-horizontal" method="POST" action="" enctype="multipart/form-data">
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
               <div class="box-body">
                   <div class="form-group">
@@ -61,10 +62,10 @@
 
               <div class="box-body">
                   <div class="form-group">
-                    <label for="date-begin" class="col-sm-3 control-label">Date Begin</label>
+                    <label for="date_begin" class="col-sm-3 control-label">Date Begin</label>
 
                     <div class="input-group col-sm-5">
-                      <input type="text" class="form-control" name="date-begin" id="date-begin" value="{{ old('date-begin') }}" placeholder="Date Begin">
+                      <input type="text" class="form-control" name="date_begin" id="date-begin" value="{{ old('date_begin') }}" placeholder="Date Begin (dd-mm-yyyy)">
                     </div>
                     <!-- /.input group -->
                   </div>
@@ -75,10 +76,10 @@
                 <!-- time Picker -->
                 <div class="bootstrap-timepicker">
                   <div class="form-group">
-                    <label for="time-begin" class="col-sm-3 control-label">Time begin</label>
+                    <label for="time_begin" class="col-sm-3 control-label">Time begin</label>
 
                     <div class="input-group col-md-5">
-                      <input type="text" class="form-control timepicker">
+                      <input type="text" class="form-control timepicker" name="time_begin" value="{{ old('time_begin') }}">
                     </div>
                     <!-- /.input group -->
                   </div>
@@ -121,13 +122,17 @@
   <script src="{{ asset('admin') }}/plugins/timepicker/bootstrap-timepicker.min.js"></script>
   <script>
     $(function () {      
+      var dateToday = new Date(); 
       //date picker
-      $('#datepicker').datepicker({
-          autoclose: true
+      $('#date-begin').datepicker({
+          autoclose: true,
+          format: 'dd-mm-yyyy',
+          todayHighlight: true,
+          startDate: new Date()
         });
       //Timepicker
       $(".timepicker").timepicker({
-        showInputs: false
+        showInputs: false,
       });
     });
   </script>

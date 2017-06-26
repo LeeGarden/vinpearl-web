@@ -28,12 +28,12 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>        
-        <li class="treeview">
+        <li class="active treeview">
           <a href="{{ asset('admin/dashboard') }}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
-        <li class="active treeview">
+        <li class=" treeview">
           <a href="#">
             <i class="fa fa-microchip"></i> <span>System Managerment</span>            
             <span class="pull-right-container">
@@ -44,6 +44,11 @@
             <li class="active"><a href="{{ asset('admin/role/list') }}"><i class="fa fa-circle-o"></i>Role</a></li>
             <li><a href="{{ asset('admin/admin/list') }}"><i class="fa fa-user-circle-o"></i>Admin</a></li>
           </ul>
+        </li>
+        <li class="treeview">
+          <a href="{{ asset('admin/event/list') }}">
+            <i class="fa fa-dashboard"></i> <span>Event</span>
+          </a>
         </li>
         {{-- <li class="treeview">
           <a href="#">

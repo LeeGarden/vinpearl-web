@@ -48,7 +48,12 @@ Route::group(['prefix'=>'admin'], function () {
         });
 
         Route::group(['prefix' => 'event'], function () { 
-            Route::get('add', ['as'=>'admin.event.add','uses'=>'EventController@getAdd']); 
+            Route::get('list', ['as'=>'admin.event.list','uses'=>'EventController@getList']); 
+            Route::get('add', ['as'=>'admin.event.getAdd','uses'=>'EventController@getAdd']); 
+            Route::post('add', ['as'=>'admin.event.postAdd','uses'=>'EventController@postAdd']); 
+            Route::get('edit/{id}', ['as'=>'admin.event.getEdit','uses'=>'EventController@getEdit']); 
+            Route::post('edit/{id}', ['as'=>'admin.event.postEdit','uses'=>'EventController@postEdit']); 
+            Route::get('delete/{id}', ['as'=>'admin.event.getDelete','uses'=>'EventController@getDelete']); 
         });
     }); 
   });
