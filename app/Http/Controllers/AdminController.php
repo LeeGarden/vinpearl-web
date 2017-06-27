@@ -36,26 +36,26 @@ class AdminController extends Controller
     public function getListRole()
     {
         $listrole = Role::get();
-        
+
         return view('admin.role.list');
     }
 
     public function getAddRole()
     {
-        
+
     }
 
     public function postAddRole(Request $request)
     {
-        
+
     }
 
     public function getEditRole($id)
     {
-        
+
     }
 
-    public function postEditRole(Request $request, $id)     
+    public function postEditRole(Request $request, $id)
     {
 
     }
@@ -84,22 +84,22 @@ class AdminController extends Controller
         $admin->password = bcrypt($request->password);
         $admin->role_id  = $request->role_id;
         $admin->save();
-        return redirect()->route('admin.admin.list')->with(['flash_message'=>'Add new Admin successfull']);
+        return redirect()->route('admin.admin.list')->with(['flash_message'=>'Thêm mới Quản trị viên thành công']);
     }
 
     public function getEditAdmin($id)
     {
-        
+
     }
 
-    public function postEditAdmin(Request $request, $id)     
+    public function postEditAdmin(Request $request, $id)
     {
 
     }
 
     public function getDelAdmin($id)
     {
-        
+
     }
 
     public function getChangePassword()
@@ -130,11 +130,11 @@ class AdminController extends Controller
         }
         else
         {
-            return redirect()->back()->with(['err_message'=>'Your password was incorrect']);
+            return redirect()->back()->with(['err_message'=>'Sai mật khẩu. Vui lòng thử lại.']);
         }
         $admin->save();
 
-        return redirect()->route('admin.getProfile')->with(['flash_message'=>'Update password success.']);
+        return redirect()->route('admin.getProfile')->with(['flash_message'=>'Đổi mật khẩu thành công.']);
     }
     public function getProfileInfo()
     {
@@ -149,17 +149,17 @@ class AdminController extends Controller
         $admin->phone   = $request->phone;
         $admin->address = $request->address;
         $admin->gender  = $request->gender;
-        if ($request->hasFile('image')) {                 
+        if ($request->hasFile('image')) {
             $files = $request->file('image');
             $filename        = str_slug(date("Y-m-d H-i-s").$files->getClientOriginalName());
             $filetype        = $files->getClientOriginalExtension();
             $picture         = "$filename.$filetype";
             $destinationPath = base_path() . '/public/uploads/images/';
-            $files->move($destinationPath, $picture);   
+            $files->move($destinationPath, $picture);
             $admin->image = $picture; // cắt xong lưu csdl
         }
         $admin->save();
 
-        return redirect()->route('admin.getProfile')->with(['flash_message'=>'Update info success.']);
+        return redirect()->route('admin.getProfile')->with(['flash_message'=>'Cập nhập thông tin thành công.']);
     }
 }

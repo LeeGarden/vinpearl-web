@@ -19,7 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('slug');
             $table->text('content');
             $table->date('date_begin');
-            $table->time('time_begin');
+            $table->string('time_begin');
             $table->integer('admin_id')->unsigned();
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->timestamps();

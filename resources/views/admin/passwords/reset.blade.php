@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Login</title>
+  <title>Đặt lại Mật khẩu</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -31,7 +31,7 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-      <p class="login-box-msg">Admin Reset Password</p>
+      <p class="login-box-msg">Đặt lại Mật khẩu</p>
       @if (session('status'))
       <div class="alert alert-success">
         {{ session('status') }}
@@ -43,9 +43,9 @@
         <input type="hidden" name="token" value="{{ $token }}">
 
         <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-          <label for="email" class="control-label">E-Mail Address</label>
+          <label for="email" class="control-label">Email </label>
 
-          <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>                
+          <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           @if ($errors->has('email'))
           <span class="help-block">
@@ -55,7 +55,7 @@
         </div>
 
         <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-          <label for="password" class="control-label">Password</label>
+          <label for="password" class="control-label">Mật khẩu mới</label>
 
           <input id="password" type="password" class="form-control" name="password" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-          <label for="password-confirm" class="control-label">Confirm Password</label>
+          <label for="password-confirm" class="control-label">Xác nhận m.khẩu</label>
 
           <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -82,7 +82,7 @@
 
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Send Password Reset Link</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Đặt lại Mật khẩu</button>
           </div>
           <!-- /.col -->
         </div>

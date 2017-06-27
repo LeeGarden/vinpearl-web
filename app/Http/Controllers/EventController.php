@@ -10,7 +10,7 @@ class EventController extends Controller
 {
     function __construct()
     {
-    	
+
     }
 
     public function getList()
@@ -18,7 +18,7 @@ class EventController extends Controller
     	$listEvent = Event::get();
         return view('admin.event.list',compact('listEvent'));
     }
-    
+
     public function getAdd()
     {
     	return view('admin.event.add');
@@ -35,7 +35,7 @@ class EventController extends Controller
         $event->admin_id   = Auth::guard('admin')->user()->id;
         $event->save();
 
-        return redirect()->route('admin.event.list')->with(['flash_message'=>'Add Event success']);
+        return redirect()->route('admin.event.list')->with(['flash_message'=>'Thêm mới Sự kiện hoàn tất']);
     }
 
     public function getEdit($id)
@@ -56,7 +56,7 @@ class EventController extends Controller
         $event->admin_id   = Auth::guard('admin')->user()->id;
         $event->save();
 
-        return redirect()->route('admin.event.list')->with(['flash_message'=>'Edit Event success']);
+        return redirect()->route('admin.event.list')->with(['flash_message'=>'Cập nhập sự kiện hoàn tất.']);
     }
 
     public function getDelete($id)
@@ -64,8 +64,9 @@ class EventController extends Controller
     	$event = Event::find($id);
         if($event->delete())
         {
-            return redirect()->route('admin.event.list')->with(['flash_message'=>'Delete Event success']);
+            return redirect()->route('admin.event.list')->with(['flash_message'=>'Xóa sự kiện hoàn tất.']);
         }
     }
+
 
 }

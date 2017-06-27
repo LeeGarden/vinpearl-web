@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Login</title>
+  <title>Đăng nhập</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -31,37 +31,37 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Đăng nhập để vào Trang quản trị</p>
 
     <form method="POST" action="{{ route('admin.login') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="form-group has-feedback">
-        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Address" required autofocus>
+        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+        <input id="password" type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+              <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Lưu Đăng nhập
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng Nhập</button>
         </div>
         <!-- /.col -->
       </div>
       <div class="row">
           <div class="col-xs-6">
               <a href="{{ route('admin.password.request') }}">
-                    Forgot Your Password?
+                    Quên mật khẩu?
                 </a>
           </div>
       </div>

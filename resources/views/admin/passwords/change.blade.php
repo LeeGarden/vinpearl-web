@@ -1,17 +1,17 @@
 @extends('admin.master')
-@section('title') Staff @endsection
+@section('title') Đổi mật khẩu @endsection
 
 @section('content-wrapper')
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Change Password
+    Đổi mật khẩu
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Admin </a></li>
-    <li class="active">Change password</li>
+    <li><a href="#">Quản trị viên </a></li>
+    <li class="active">Đổi mật khẩu</li>
   </ol>
 </section>
 
@@ -30,38 +30,38 @@
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="box-body col-sm-8">
         <div class="form-group">
-          <label for="name" class="col-sm-5 control-label">Current Password</label>
+          <label for="name" class="col-sm-5 control-label">Mật khẩu cũ</label>
 
           <div class="col-sm-7">
-            <input type="password" class="form-control" name="oldpass" placeholder="Current Password">
+            <input type="password" class="form-control" name="oldpass" placeholder="Mật khẩu cũ">
           </div>
         </div>
       </div>
       <div class="box-body col-sm-8">
         <div class="form-group">
-          <label for="username" class="col-sm-5 control-label">New Password</label>
+          <label for="username" class="col-sm-5 control-label">Mật khẩu mới</label>
 
           <div class="col-sm-7">
-            <input type="password" class="form-control" name="newpass" placeholder="New Password">
+            <input type="password" class="form-control" name="newpass" placeholder="Mật khẩu mới">
           </div>
         </div>
       </div>
       <div class="box-body col-sm-8">
         <div class="form-group">
-          <label for="password" class="col-sm-5 control-label">Confirm Password</label>
+          <label for="password" class="col-sm-5 control-label">Xác nhận m.khẩu</label>
 
           <div class="col-sm-7">
-            <input type="password" class="form-control" name="confirm" placeholder="Confirm Password">
+            <input type="password" class="form-control" name="confirm" placeholder="Xác nhận m.khẩu">
           </div>
         </div>
       </div>
       <!-- /.box-body -->
       <div class="box-footer">
         <div class="col-sm-8">
-          <div class="col-sm-5">            
-           <a href="{{ URL::route('admin.getProfile') }}" class="btn btn-default pull-right">Return Profile </a>
+          <div class="col-sm-5">
+           <a href="{{ URL::route('admin.getProfile') }}" class="btn btn-default pull-right">Thông tin </a>
           </div>
-          <button type="submit" class="btn btn-info pull-right">Update Password</button>
+          <button type="submit" class="btn btn-info pull-right">Cập nhập m.khẩu</button>
         </div>
       </div>
       <!-- /.box-footer -->

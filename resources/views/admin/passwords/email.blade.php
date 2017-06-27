@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin Login</title>
+  <title>Quên mật khẩu</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -31,7 +31,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Admin Reset Password</p>
+    <p class="login-box-msg">Đặt lại Mật khẩu</p>
     @if (session('status'))
         <div class="alert alert-success">
             {{ session('status') }}
@@ -41,8 +41,8 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-        <label for="email" class="control-label">Email Address</label>
-          <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email Address" required autofocus>
+        <label for="email" class="control-label">Email</label>
+          <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Nhập email" required autofocus>
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           @if ($errors->has('email'))
               <span class="help-block">
@@ -52,11 +52,11 @@
         </div>
         <div class="row">
           <div class="col-xs-8 col-xs-offset-2">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Send Password Reset Link</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">Gửi liên kết</button>
           </div>
           <!-- /.col -->
         </div>
-    </form>    
+    </form>
 
   </div>
   <!-- /.login-box-body -->
