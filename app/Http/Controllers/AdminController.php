@@ -20,7 +20,10 @@ class AdminController extends Controller
         $this->middleware('auth:admin');
 
         $listrole = Role::get();
-        view()->share(['listrole'=>$listrole]);
+
+        view()->share([
+            'listrole'    => $listrole,
+        ]);
     }
 
     /**
@@ -162,4 +165,6 @@ class AdminController extends Controller
 
         return redirect()->route('admin.getProfile')->with(['flash_message'=>'Cập nhập thông tin thành công.']);
     }
+
+
 }

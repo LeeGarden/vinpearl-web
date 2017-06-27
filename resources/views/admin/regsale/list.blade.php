@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title')List Contact @endsection
+@section('title')Tư vấn @endsection
 
   <!-- Data table -->
   <link rel="stylesheet" href="{{ asset('admin') }}/plugins/datatables/dataTables.bootstrap.css">
@@ -7,13 +7,13 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    List Contact
+    Danh sách Đăng ký bán
     <small></small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Contact</a></li>
-    <li class="active">List</li>
+    <li><a href="#">Đăng ký bán</a></li>
+    <li class="active">Danh sách</li>
   </ol>
 </section>
 
@@ -32,18 +32,23 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Role</th>
+            <th>Họ & tên</th>
+            <th>Email</th>
+            <th>Điện thoại</th>
+            <th>Ngày bán</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($listrole as $item)
+          @foreach ($listRegSale as $item)
             <tr>
               <td>{{ $item['id']}}</td>
-              <td>{{ $item['roles']}}</td>
+              <td>{{ $item['fulname']}}</td>
+              <td>{{ $item['email']}}</td>
+              <td>{{ $item['phone']}}</td>
+              <td>{{ $item['date_sale']}}</td>
               <td>
-                <a href="{{ asset('admin/role/edit') }}/{{ $item['id'] }}" title="Edit"><i class="fa fa-cog"></i></a>    
-                <a  data-toggle="modal" data-target="#del{{ $item['id'] }}" title="Delete"><i class="fa fa-trash-o"></i></a> 
+                <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Detail"><i class="fa fa-cog"></i></a>    
               </td>
             </tr>
           @endforeach
@@ -61,9 +66,5 @@
   <!-- DataTables -->
   <script src="{{ asset('/admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{ asset('/admin') }}/plugins/datatables/dataTables.bootstrap.min.js"></script>
-  <script>
-  $(function(){
-    $("#data-table").DataTable();
-  });
-  </script>
+  
 @endsection

@@ -49,6 +49,16 @@
           <a href="{{ asset('admin/event/list') }}">
             <i class="fa fa-linode"></i> <span>Sự kiện</span>
           </a>
+        </li>        
+        <li class="treeview">
+          <a href="{{ asset('admin/regsale/list') }}">
+            <i class="fa fa-calendar-minus-o"></i> <span>Đăng ký bán</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="{{ asset('admin/consult/list') }}">
+            <i class="fa fa-question-circle-o"></i> <span>Tư vấn</span>
+          </a>
         </li>
         {{-- <li class="treeview">
           <a href="#">

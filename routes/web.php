@@ -55,5 +55,12 @@ Route::group(['prefix'=>'admin'], function () {
             Route::post('edit/{id}', ['as'=>'admin.event.postEdit','uses'=>'EventController@postEdit']);
             Route::get('delete/{id}', ['as'=>'admin.event.getDelete','uses'=>'EventController@getDelete']);
         });
+        Route::group(['prefix' => 'consult'], function () {
+            Route::get('list', ['as'=>'admin.consult.list','uses'=>'ConsultController@getListConsult']);
+            Route::get('detail/{id}', ['as'=>'admin.consult.detail','uses'=>'ConsultController@getDetailConsult']);
+        });
+        Route::group(['prefix' => 'regsale'], function () {
+            Route::get('list', ['as'=>'admin.consult.list','uses'=>'RegisterSaleController@getListRegSale']);
+        });
     });
   });

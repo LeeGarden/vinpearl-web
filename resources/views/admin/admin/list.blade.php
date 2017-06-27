@@ -64,9 +64,4 @@
   <!-- DataTables -->
   <script src="{{ asset('/admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{ asset('/admin') }}/plugins/datatables/dataTables.bootstrap.min.js"></script>
-  <script>
-  $(function(){
-    $("#data-table").DataTable();
-  });
-  </script>
 @endsection
