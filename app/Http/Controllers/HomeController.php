@@ -14,14 +14,14 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public $curDate = '';
 
 
     public function __construct()
     {
         // $this->middleware('auth');
 
-        $curDate = date('Y-m-d');
+        $eventComing = $this->get4EventComing();
+        view()->share(['eventComing' =>$eventComing]);
     }
 
     /**
@@ -31,38 +31,44 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('client.master');
     }
 
-    public function get4EventComing($curDate)
+    public function get4EventComing()
     {
+        $curDate = date('Y-m-d');
         $event =  Event::whereDate('date_begin', '>=', $curDate)->orderBy('date_begin', 'ASC')->take(4)->get()->toArray();
         return $event;
     }
 
-    public function getAllEventComing($curDate)
+    public function getAllEventComing()
     {
+        $curDate = date('Y-m-d');
         $event =  Event::whereDate('date_begin', '>=', $curDate)->orderBy('date_begin', 'ASC')->get()->toArray();
         return $event;
     }
 
-    public function get3EventEnded($curDate)
+    public function get3EventEnded()
     {
+        $curDate = date('Y-m-d');
         $event =  Event::whereDate('date_begin', '<=', $curDate)->orderBy('date_begin', 'DESC')->get()->toArray();
         return $event;
     }
 
     public function postAddConsult(Request $request)
     {
-        $consult = new Consult;
-        $consult->fulname = $request->fulname;
-        $consult->email   = $request->email;
-        $consult->phone   = $request->phone;
-        $consult->message = $request->message;
-        $consult->status  = 0;
-        $consult->save();
-
-        return 'ok';
+        
+        if($request->ajax())
+        {
+            $consult = new Consult;
+            $consult->fulname = $request->fulname;
+            $consult->email   = $request->email;
+            $consult->phone   = $request->phone;
+            $consult->message = $request->message;
+            $consult->status  = 0;
+            $consult->save();
+            return 'ok';
+        }
     }
 
     public function postAddRegisterSale(Request $request)
@@ -76,4 +82,5 @@ class HomeController extends Controller
         $regSale->status    = 0;
         $regSale->save();
         return 'ok';
+    }
 }

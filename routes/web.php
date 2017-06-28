@@ -11,16 +11,22 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/id', function () {
+    return view('client.master');
 });
 // This project not use user login
 // Auth::routes();
+// Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@userLogout']);
 
+
+
+//Route for client page
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@userLogout']);
+Route::get('/',['as'=>'client.index','uses'=>'HomeController@index']);
+Route::post('tu-van',['as'=>'client.consult','uses'=>'HomeController@postAddConsult']);
 
 
+//Route for Admin page
 Route::group(['prefix'=>'admin'], function () {
     Route::get('login',['as'=>'admin.login','uses'=>'Admin\LoginController@showLoginForm']);
     Route::post('login',['as'=>'admin.login','uses'=>'Admin\LoginController@login']);
