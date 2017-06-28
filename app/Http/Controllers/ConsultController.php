@@ -42,6 +42,6 @@ class ConsultController extends Controller
         return $consult;
       }
 
-      return 'return data on view :))';   		
+      return view('admin.consult.detail', compact('consult'));
     }
 }

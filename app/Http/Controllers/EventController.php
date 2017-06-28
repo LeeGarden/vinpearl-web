@@ -18,6 +18,16 @@ class EventController extends Controller
     	$listEvent = Event::get();
         return view('admin.event.list',compact('listEvent'));
     }
+    public function getDetailEvent(Request $request, $id)
+    {
+        $event = Event::find($id)->first();
+        $event->date_begin = date('d-m-Y', strtotime($event->date_begin));
+        if($request->ajax())
+        {
+            return $event;
+        }
+
+    }
 
     public function getAdd()
     {
@@ -59,7 +69,7 @@ class EventController extends Controller
         return redirect()->route('admin.event.list')->with(['flash_message'=>'Cập nhập sự kiện hoàn tất.']);
     }
 
-    public function getDelete($id)
+    public function deleteEvent($id)
     {
     	$event = Event::find($id);
         if($event->delete())

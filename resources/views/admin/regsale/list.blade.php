@@ -48,12 +48,57 @@
               <td>{{ $item['phone']}}</td>
               <td>{{ $item['date_sale']}}</td>
               <td>
-                <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Detail"><i class="fa fa-cog"></i></a>    
+                <a href="#" class="showModal" url-data="{{ asset('admin/regsale/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
+                <a href="{{ asset('admin/regsale/detail') }}/{{ $item['id'] }}" title="Xem chi tiết"><i class="fa fa-folder-open-o"></i></a>  
               </td>
             </tr>
           @endforeach
         </tbody>
       </table>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="exampleModalLabel">Thông tin đăng ký mở bán</h3>
+          </div>
+          <form class="form-horizontal">
+          <div class="modal-body">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Người gửi</label>
+                <div class="col-md-9" id="name">
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="col-md-2 control-label">Email</label>
+                <div class="col-md-9" id="email">
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="col-md-2 control-label">Điện thoại</label>
+                <div class="col-md-9" id="phone">
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="col-md-2 control-label">Thông tin đ.ký bán</label>
+                <div class="col-md-9" id="message">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Ngày bán</label>
+                <div class="col-md-9" id="created_at">
+                </div>
+            </div>
+          </div>
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="submit">Chi tiết</button>
+          </div>
+        </div>
+      </div>
     </div>
     <!-- /.box-body -->
   </div>
@@ -66,5 +111,31 @@
   <!-- DataTables -->
   <script src="{{ asset('/admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{ asset('/admin') }}/plugins/datatables/dataTables.bootstrap.min.js"></script>
-  
+  <script type="text/javascript">
+    $('.showModal').click(function(){
+            var url = $(this).attr('url-data');
+            var data = {
+            }
+            $.ajax({
+                url : url,
+                type : "get",
+                cache : false,
+                success:function(data){
+                    // console.log(data)
+                    $('#name').html('<span>'+data['fulname']+'</span>');
+                    $('#email').html('<span>'+data['email']+'</span>');
+                    $('#phone').html('<span>'+data['phone']+'</span>');
+                    $('#message').html('<span>'+data['message']+'</span>');
+                    $('#created_at').html('<span>'+data['date_sale']+'</span>');
+                    //css for tag SPAN
+                    $(".col-md-9 > span").css("font-size", "18px");
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+      //show modal
+      $('#modalData').modal('show');
+    });
+  </script>
 @endsection

@@ -49,18 +49,20 @@ Route::group(['prefix'=>'admin'], function () {
 
         Route::group(['prefix' => 'event'], function () {
             Route::get('list', ['as'=>'admin.event.list','uses'=>'EventController@getList']);
+            Route::get('detail/{id}', ['as'=>'admin.event.detail','uses'=>'EventController@getDetailEvent']);
             Route::get('add', ['as'=>'admin.event.getAdd','uses'=>'EventController@getAdd']);
             Route::post('add', ['as'=>'admin.event.postAdd','uses'=>'EventController@postAdd']);
             Route::get('edit/{id}', ['as'=>'admin.event.getEdit','uses'=>'EventController@getEdit']);
             Route::post('edit/{id}', ['as'=>'admin.event.postEdit','uses'=>'EventController@postEdit']);
-            Route::get('delete/{id}', ['as'=>'admin.event.getDelete','uses'=>'EventController@getDelete']);
+            Route::delete('delete/{id}', ['as'=>'admin.event.deleteEvent','uses'=>'EventController@deleteEvent']);
         });
         Route::group(['prefix' => 'consult'], function () {
             Route::get('list', ['as'=>'admin.consult.list','uses'=>'ConsultController@getListConsult']);
             Route::get('detail/{id}', ['as'=>'admin.consult.detail','uses'=>'ConsultController@getDetailConsult']);
         });
         Route::group(['prefix' => 'regsale'], function () {
-            Route::get('list', ['as'=>'admin.consult.list','uses'=>'RegisterSaleController@getListRegSale']);
+            Route::get('list', ['as'=>'admin.regsale.list','uses'=>'RegisterSaleController@getListRegSale']);
+            Route::get('detail/{id}', ['as'=>'admin.regsale.detail','uses'=>'RegisterSaleController@getDetailRegSale']);
         });
     });
   });

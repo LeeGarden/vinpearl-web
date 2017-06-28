@@ -46,13 +46,70 @@
               <td>{{ $item['title']}}</td>
               <td>{{ $item['date_begin']}} {{ $item['time_begin'] }}</td>
               <td>
-                <a href="{{ asset('admin/event/edit') }}/{{ $item['id'] }}" title="Edit"><i class="fa fa-cog"></i></a>    
-                <a  data-toggle="modal" data-target="#del{{ $item['id'] }}" title="Delete"><i class="fa fa-trash-o"></i></a> 
+                <a href="#" class="showModal" url-data="{{ asset('admin/event/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
+                <a href="{{ asset('admin/event/edit') }}/{{ $item['id'] }}" title="Edit"><i class="fa fa-cog"></i></a>
+                <a href="#" title="Xóa sự kiện" id-data="{{ $item['id'] }}" class="showDelete"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           @endforeach
         </tbody>
       </table>
+    </div>
+    <!--Show data Modal -->
+    <div class="modal fade" id="modalData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="exampleModalLabel">Thông tin Sự kiện</h3>
+          </div>
+          <form class="form-horizontal">
+          <div class="modal-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">Tên sự kiện</label>
+                <div class="col-md-8" id="title">
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="col-md-3 control-label">Nội dung</label>
+                <div class="col-md-8" id="content">
+                </div>
+            </div>
+            <div class="form-group" >
+                <label class="col-md-3 control-label">Thời gian b.đầu</label>
+                <div class="col-md-8" id="datetime">
+                </div>
+            </div>
+          </div>
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <a class="btn btn-primary" id="submit">Chi tiết</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Show delete Modal dialog-->
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="exampleModalLabel">Xóa Sự kiện</h3>
+          </div>
+          <form class="form-horizontal" method="POST" id="form-delete">
+            <input type="hidden" name="_token" value="{{csrf_token()}}" >
+            <input type="hidden" name="_method" value="DELETE" >
+            <div class="modal-body">
+              <span style="font-size: 18px">Xóa dữ liệu này. Bạn chắc chắn xóa?</span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+              <button type="submit" class="btn btn-primary" id="btn-delte">Đồng ý</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <!-- /.box-body -->
   </div>
@@ -65,5 +122,37 @@
   <!-- DataTables -->
   <script src="{{ asset('/admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{ asset('/admin') }}/plugins/datatables/dataTables.bootstrap.min.js"></script>
-  
+  <script type="text/javascript">
+    $(".showDelete").click(function(){
+      var id = $(this).attr('id-data');
+      $('#form-delete').attr('action','{{ asset('admin/event/delete') }}/'+id);
+      //show modal
+      $('#modalDelete').modal('show');
+
+    });
+    $('.showModal').click(function(){
+            var url = $(this).attr('url-data');
+            var data = {
+            }
+            $.ajax({
+                url : url,
+                type : "get",
+                cache : false,
+                success:function(data){
+                    console.log(data)
+                    $('#title').html('<span>'+data['title']+'</span>');
+                    $('#content').html('<span>'+data['content']+'</span>');
+                    $('#datetime').html('<span>'+data['time_begin'] + "</span><span style='padding-left:10px'>" +data['date_begin'] +'</span>');
+                    //css for tag SPAN
+                    $(".form-group > .col-md-8").css({"margin-top": "5px"});
+                    $(".col-md-8 > span").css({"font-size": "18px"});
+                },
+                error:function(data){
+                    console.log(data);
+                }
+            });
+      //show modal
+      $('#modalData').modal('show');
+    });
+  </script>
 @endsection

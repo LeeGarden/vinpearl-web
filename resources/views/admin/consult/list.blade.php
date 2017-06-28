@@ -46,48 +46,58 @@
               <td>{{ $item['email']}}</td>
               <td>{{ $item['phone']}}</td>
               <td>
-                <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Detail"><i class="fa fa-cog"></i></a>    
-                <a href="#" class="showModal" title="Detail"><i class="fa fa-cog"></i></a>    
+                <a href="#" class="showModal" url-data="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
+                <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem chi tiết"><i class="fa fa-folder-open-o"></i></a>
               </td>
             </tr>
           @endforeach
         </tbody>
       </table>
     </div>
-<!-- Modal -->
-<div class="modal fade" id="modalData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h5 class="modal-title" id="exampleModalLabel">Test Info</h5>
-      </div>
-      <form class="form-horizontal">
-      <div class="modal-body">
-        <div class="form-group">
-            <label class="col-md-2 control-label">Name of test</label>
-            <div class="col-md-9" id="name">
+    <!-- Modal -->
+    <div class="modal fade" id="modalData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title" id="exampleModalLabel">Thông tin cần Tư vấn</h3>
+          </div>
+          <form class="form-horizontal">
+          <div class="modal-body">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Người gửi</label>
+                <div class="col-md-9" id="name">
+                </div>
             </div>
-        </div>  
-        <div class="form-group" >
-            <label class="col-md-2 control-label">Time Total (min)</label>
-            <div class="col-md-9" id="timetotal">
+            <div class="form-group" >
+                <label class="col-md-2 control-label">Email</label>
+                <div class="col-md-9" id="email">
+                </div>
             </div>
-        </div>                    
-        <div class="form-group">
-            <label class="col-md-2 control-label">Expired</label>
-            <div class="col-md-9" id="expired">
+            <div class="form-group" >
+                <label class="col-md-2 control-label">Điện thoại</label>
+                <div class="col-md-9" id="phone">
+                </div>
             </div>
-        </div>  
-      </div>
-      </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Choose Question</button>
-        <button type="button" class="btn btn-primary" id="submit" data-token="{{ csrf_token() }}">Save Test</button>
+            <div class="form-group" >
+                <label class="col-md-2 control-label">Nội dung cần tư vấn</label>
+                <div class="col-md-9" id="message">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">Ngày gửi</label>
+                <div class="col-md-9" id="created_at">
+                </div>
+            </div>
+          </div>
+          </form>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-primary" id="submit">Chi tiết</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
     <!-- /.box-body -->
   </div>
   <!-- /.box -->
@@ -101,25 +111,27 @@
   <script src="{{ asset('/admin') }}/plugins/datatables/dataTables.bootstrap.min.js"></script>
   <script type="text/javascript">
     $('.showModal').click(function(){
-            var url = '/admin/consult/';
+            var url = $(this).attr('url-data');
             var data = {
             }
             $.ajax({
-                url : url + 'detail/1',
+                url : url,
                 type : "get",
                 cache : false,
-                
                 success:function(data){
-                    console.log(data['fulname']);
-                    
-                    $('#timetotal').html('<span style="font-size:18px">'+data['fulname']+'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ut alias aspernatur dolore ex ad nobis tempore officiis eligendi voluptas, tempora repudiandae, modi nulla ratione explicabo dolorum tenetur aliquam illo rerum odio et labore, ipsum vitae doloremque. Nemo aliquam doloremque molestiae, cupiditate quibusdam eligendi rerum perspiciatis quidem. Similique, corporis, fugit! Nesciunt cum laboriosam, repudiandae, provident doloribus voluptatibus possimus ipsum. Quisquam dignissimos nisi vero laboriosam asperiores hic tenetur! Iure cumque, quae aliquam esse corporis voluptate reiciendis aliquid vero dignissimos omnis animi sapiente tempora soluta sequi itaque quasi natus debitis. Commodi amet, ea saepe hic at repellat necessitatibus laudantium molestias dolorem autem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit ut alias aspernatur dolore ex ad nobis tempore officiis eligendi voluptas, tempora repudiandae, modi nulla ratione explicabo dolorum tenetur aliquam illo rerum odio et labore, ipsum vitae doloremque. Nemo aliquam doloremque molestiae, cupiditate quibusdam eligendi rerum perspiciatis quidem. Similique, corporis, fugit! Nesciunt cum laboriosam, repudiandae, provident doloribus voluptatibus possimus ipsum. Quisquam dignissimos nisi vero laboriosam asperiores hic tenetur! Iure cumque, quae aliquam esse corporis voluptate reiciendis aliquid vero dignissimos omnis animi sapiente tempora soluta sequi itaque quasi natus debitis. Commodi amet, ea saepe hic at repellat necessitatibus </span>');
-                    
+                    // console.log(data)
+                    $('#name').html('<span>'+data['fulname']+'</span>');
+                    $('#email').html('<span>'+data['email']+'</span>');
+                    $('#phone').html('<span>'+data['phone']+'</span>');
+                    $('#message').html('<span>'+data['message']+'</span>');
+                    $('#created_at').html('<span>'+data['created_at']+'</span>');
+                    //css for tag SPAN
+                    $(".col-md-9 > span").css("font-size", "18px");
                 },
                 error:function(data){
                     console.log(data);
                 }
             });
-
       //show modal
       $('#modalData').modal('show');
     });

@@ -28,15 +28,20 @@ class RegisterSaleController extends Controller
     	return view('admin.regsale.list');
     }
 
-    public function getDetailRegSale($id)
+    public function getDetailRegSale(Request $request, $id)
     {
-    	$regSale = RegisterSale::find($id);
+    	$regSale = RegisterSale::find($id)->first();
    		if ($regSale->status != 1)
    		{
    			$regSale->status = 1;
    		}
    		$regSale->save();
 
-   		return view('admin.regSale.detail');
+      if($request->ajax())
+      {
+        return $regSale;
+      }
+
+   		return view('admin.regsale.detail',compact('regSale'));
     }
 }
