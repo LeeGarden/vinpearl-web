@@ -30,7 +30,9 @@ class ConsultController extends Controller
 
     public function getDetailConsult(Request $request, $id)
     {
-    	$consult = Consult::find($id)->first();
+    	$consult = Consult::where('id',$id)->first();
+        dd($consult);
+
    		if ($consult->status != 1)
    		{
    			$consult->status = 1;

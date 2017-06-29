@@ -44,8 +44,17 @@
         <input id="password" type="password" class="form-control" name="password" placeholder="Mật khẩu" required>
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
+      @if(Session::has('error_login'))        
+        <div class="form-group col-md-12 alert-danger" style="padding: 7px 0">
+          <span class="col-md-12 text-red" style="width: 100%;">{{ Session::get('error_login') }}</span>
+        </div>
+      @else
+        <div class="form-group has-feedback">
+          <span></span>
+        </div>
+      @endif
       <div class="row">
-        <div class="col-xs-8">
+        <div class="col-xs-7">
           <div class="checkbox icheck">
             <label>
               <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Lưu Đăng nhập
@@ -53,7 +62,7 @@
           </div>
         </div>
         <!-- /.col -->
-        <div class="col-xs-4">
+        <div class="col-xs-5">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng Nhập</button>
         </div>
         <!-- /.col -->

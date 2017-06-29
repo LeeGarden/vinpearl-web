@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/id', function () {
+Route::get('/test', function () {
     return view('client.master');
 });
 // This project not use user login
-// Auth::routes();
-// Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@userLogout']);
+/*Auth::routes();
+Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@userLogout']);*/
 
 
 
@@ -24,6 +24,7 @@ Route::get('/id', function () {
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',['as'=>'client.index','uses'=>'HomeController@index']);
 Route::post('tu-van',['as'=>'client.consult','uses'=>'HomeController@postAddConsult']);
+Route::post('dang-ky-ban',['as'=>'client.consult','uses'=>'HomeController@postAddRegSale']);
 
 
 //Route for Admin page

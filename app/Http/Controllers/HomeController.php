@@ -21,7 +21,9 @@ class HomeController extends Controller
         // $this->middleware('auth');
 
         $eventComing = $this->get4EventComing();
-        view()->share(['eventComing' =>$eventComing]);
+        $nearestEvent = $eventComing->shift();
+        $nearestEvent->content = str_limit($nearestEvent->content,225);
+        view()->share(['nearestEvent'=>$nearestEvent, 'eventComing' =>$eventComing]);
     }
 
     /**
@@ -37,7 +39,8 @@ class HomeController extends Controller
     public function get4EventComing()
     {
         $curDate = date('Y-m-d');
-        $event =  Event::whereDate('date_begin', '>=', $curDate)->orderBy('date_begin', 'ASC')->take(4)->get()->toArray();
+        $event =  Event::whereDate('date_begin', '>=', $curDate)->orderBy('date_begin', 'ASC')->take(4)->get();
+        // dd($event->shift()->title);
         return $event;
     }
 
@@ -57,7 +60,6 @@ class HomeController extends Controller
 
     public function postAddConsult(Request $request)
     {
-        
         if($request->ajax())
         {
             $consult = new Consult;
@@ -71,16 +73,20 @@ class HomeController extends Controller
         }
     }
 
-    public function postAddRegisterSale(Request $request)
+    public function postAddRegSale(Request $request)
     {
-        $regSale = new RegisterSale;
-        $regSale->fulname   = $request->fulname;
-        $regSale->email     = $request->email;
-        $regSale->phone     = $request->phone;
-        $regSale->message   = $request->message;
-        $regSale->date_sale = $request->date_sale;
-        $regSale->status    = 0;
-        $regSale->save();
+        if($request->ajax())
+        {
+            $regSale = new RegisterSale;
+            $regSale->fulname   = $request->fulname;
+            $regSale->email     = $request->email;
+            $regSale->phone     = $request->phone;
+            $regSale->message   = $request->message;
+            $regSale->date_sale = $request->date_sale;
+            $regSale->status    = 0;
+            $regSale->save();
+            return 'ok';
+        }
         return 'ok';
     }
 }

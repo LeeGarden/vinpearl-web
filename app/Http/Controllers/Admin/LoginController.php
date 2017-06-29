@@ -34,7 +34,7 @@ class LoginController extends Controller
     	}
 
     	//if unsuccessful, then redirect to form login
-    	return redirect()->route('admin.login')->withInput($request->only('email','remember'));
+    	return redirect()->route('admin.login')->withInput($request->only('email','remember'))->with(['error_login'=> "Lỗi! Sai email hoặc mật khẩu. Vui lòng thử lại."]);
     }
 
     public function logout()

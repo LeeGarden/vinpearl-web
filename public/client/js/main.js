@@ -54,6 +54,7 @@ $('a[href^="#"]').click(function() {
         closeEffect : 'elastic'
     });
 });
+//ajax post add info consult
 $('#sendConsult').click(function(){
     var url = $(this).attr('url-data');
     var fulname = $('#fulname').val();
@@ -80,6 +81,40 @@ $('#sendConsult').click(function(){
             $('#phone').val('');
             $('#message').val('');
             alert('Đã gửi thông tin đăng ký tư vấn miễn phí.');
+
+        },
+        error:function(data){
+            console.log(data);
+        }
+    });
+});
+//ajax post add info register sale
+$('#sendRegSale').click(function(){
+    var url = $(this).attr('url-data');
+    var fulname = $('#rs-fulname').val();
+    var email = $('#rs-email').val();
+    var phone = $('#rs-phone').val();
+    var message = $('#rs-message').val();
+    var data = {
+        _token: $(this).data('token'),
+        fulname : fulname,
+        email: email,
+        phone: phone,
+        message: message
+    }
+    console.log(data);
+    $.ajax({
+        url : url,
+        type : "post",
+        cache : false,
+        data : data,
+        success:function(data){
+            $(this).attr('url-data');
+            $('#rs-fulname').val('');
+            $('#rs-email').val('');
+            $('#rs-phone').val('');
+            $('#rs-message').val('');
+            alert('Thông tin đăng ký mở bán đã được gửi thành công.');
 
         },
         error:function(data){

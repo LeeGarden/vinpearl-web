@@ -165,63 +165,41 @@
 									<ul class="clearfix">
 										<li>
 											<span><img src="{{ asset('client') }}/img/icon-6.png" alt=""></span>
-											March 8 2016
+											{{ date('F d Y', strtotime($nearestEvent->date_begin)) }}
 										</li>
 										<li>
 											<span><img src="{{ asset('client') }}/img/icon-7.png" alt=""></span>
-											7:00 PM
+											{{ $nearestEvent->time_begin }}
 										</li>
 									</ul>
-									<h4>EVENT IMAGE POST EXAMPLE</h4>
-									<p>Celebrate this year’s Lovers Day by visiting our cozy, romantic. Restaurant! Each year we are introducing some themed party for this occasion. This time the Valentine’s Day will be set amid Parisian decor.</p>
+									<h4>{{ $nearestEvent->title }}</h4>
+									<p>{{ $nearestEvent->content }}</p>
 									<p>
 										<a href="#"><img src="{{ asset('client') }}/img/bt-read.png" alt=""></a>
 									</p>
 								</div>
 							</div>
 							<div class="box-right">
-								<div class="view">
+								@foreach ($eventComing as $item)
+									<div class="view">
 									<ul class="clearfix">
 										<li>
 											<span><img src="{{ asset('client') }}/img/icon-6.png" alt=""></span>
-											March 8 2016
+											{{ date('F d Y', strtotime($item->date_begin)) }}
 										</li>
 										<li>
 											<span><img src="{{ asset('client') }}/img/icon-7.png" alt=""></span>
-											7:00 PM
+											{{ $item->time_begin }}
 										</li>
 									</ul>
-									<h4>ORANGE, MEATY AND TASTY!</h4>
+									<h4>{{ $item->title }}</h4>
 								</div>
-								<div class="view">
-									<ul class="clearfix">
-										<li>
-											<span><img src="{{ asset('client') }}/img/icon-6.png" alt=""></span>
-											March 8 2016
-										</li>
-										<li>
-											<span><img src="{{ asset('client') }}/img/icon-7.png" alt=""></span>
-											7:00 PM
-										</li>
-									</ul>
-									<h4>EVENT IMAGE POST EXAMPLE</h4>
-								</div>
-								<div class="view">
-									<ul class="clearfix">
-										<li>
-											<span><img src="{{ asset('client') }}/img/icon-6.png" alt=""></span>
-											March 8 2016
-										</li>
-										<li>
-											<span><img src="{{ asset('client') }}/img/icon-7.png" alt=""></span>
-											7:00 PM
-										</li>
-									</ul>
-									<h4>PERFECT MOTHER’S DAY GIFT</h4>
-								</div>
-								<p class="txt-right">
-									<a href="#"><img src="{{ asset('client') }}/img/bt-view.png" alt=""></a>
-								</p>
+								@endforeach
+								@if(count($eventComing) >= 3)
+									<p class="txt-right">
+										<a href="#"><img src="{{ asset('client') }}/img/bt-view.png" alt=""></a>
+									</p>
+								@endif
 							</div>
 						</div>
 					</div>
@@ -243,7 +221,6 @@
 			<div class="box-wp clearfix">
 				<div class="register">
 					<h3>ĐĂNG KÝ MỞ BÁN</h3>
-					<form action="" method="">
 						<div class="time-total clearfix">
 							<div class="time">
 								<p>NGÀY</p>
@@ -265,26 +242,25 @@
 						<div class="form">
 							<div class="form-item">
 								<p>Họ và Tên</p>
-								<input type="text" name="" class="inp2">
+								<input type="text" id="rs-fulname" class="inp2">
 								<i class="fa fa-user"></i>
 							</div>	
 							<div class="form-item">
 								<p>Email</p>
-								<input type="text" name="" class="inp2">
+								<input type="text" id="rs-email" class="inp2">
 								<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 							</div>	
 							<div class="form-item">
 								<p>Số điện thoại</p>
-								<input type="text" name="" class="inp2">
+								<input type="text" id="rs-phone" class="inp2">
 								<i class="fa fa-phone fa-lg"></i>
 							</div>	
 							<div class="form-item">
 								<p>Tin nhắn</p>
-								<textarea name="" class="txtarea"></textarea>
+								<textarea id="rs-message" class="txtarea"></textarea>
 							</div>
 						</div>
-						<input type="submit" name="" value="GỬI ĐI" class="inp-sm">
-					</form>
+						<button type="submit" id="sendRegSale" class="inp-sm" url-data="{{ asset('/dang-ky-ban') }}" data-token="{{ csrf_token() }}">GỬI ĐI</button>
 				</div>
 			</div>
 		</section><!-- /sec06 -->
@@ -331,5 +307,6 @@
 		<a href="javascript:void(0)" title="Lên đầu trang" id="go-top"></a>
 	</div>
     @include('client.include.script')
+    
 </body>
 </html>

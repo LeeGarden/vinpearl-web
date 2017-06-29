@@ -8,4 +8,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('client') }}/js/fancybox/jquery.fancybox.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('client') }}/js/fancybox/helpers/jquery.fancybox-buttons.css">
 <link rel="stylesheet" type="text/css" href="{{ asset('client') }}/js/fancybox/helpers/jquery.fancybox-thumbs.css">
-<link rel="shortcut icon" href="favicon.ico">
+<link rel="shortcut icon" href="{{ asset('') }}/favicon.ico">
