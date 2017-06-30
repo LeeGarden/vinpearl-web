@@ -1,6 +1,6 @@
 <div class="box-wp clearfix">
 	<div class="header-left">
-		<a href="index.html" title="VINPEARL">
+		<a href="{{ asset('/') }}" title="VINPEARL">
 			<img src="{{ asset('client') }}/img/logo.png" alt="VINPEARL" />
 		</a>
 	</div>
@@ -18,13 +18,13 @@
 					</a>
 					<ul>
 						<li>
-							<a href="#" title="Giới thiệu">VINPEARL HỘI AN</a>
+							<a href="#" title="Giới thiệu">VINPEARL Hội An</a>
 							<ul>
 								<li>
-									<a href="#" title="Giới thiệu">VINPEARL HỘI AN</a>
+									<a href="{{ asset('/vinpearl-hoi-an') }}" title="Giới thiệu">VINPEARL Hội An</a>
 								</li>
 								<li>
-									<a href="#" title="Giới thiệu">VINPEARL HỘI AN</a>
+									<a href="#" title="Giới thiệu">VINPEARL Hội An</a>
 								</li>
 							</ul>
 						</li>

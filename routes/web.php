@@ -23,6 +23,7 @@ Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@user
 //Route for client page
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',['as'=>'client.index','uses'=>'HomeController@index']);
+Route::get('/vinpearl-hoi-an',function(){ return view('client.module'); });
 Route::post('tu-van',['as'=>'client.consult','uses'=>'HomeController@postAddConsult']);
 Route::post('dang-ky-ban',['as'=>'client.consult','uses'=>'HomeController@postAddRegSale']);
 

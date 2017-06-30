@@ -54,6 +54,19 @@ $('a[href^="#"]').click(function() {
         closeEffect : 'elastic'
     });
 });
+//Tab
+$(document).ready(function() {
+    $(".tab_content").hide();
+    $(".tab_content:first").show();
+ 
+    $("ul.tabs li").click(function() {
+        $("ul.tabs li").removeClass("active");
+        $(this).addClass("active");
+        $(".tab_content").hide();
+        var activeTab = $(this).attr("rel");
+        $("#"+activeTab).fadeIn();
+    });
+});
 //ajax post add info consult
 $('#sendConsult').click(function(){
     var url = $(this).attr('url-data');
