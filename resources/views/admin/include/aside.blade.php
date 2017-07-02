@@ -46,8 +46,13 @@
           </ul>
         </li>
         <li class="treeview">
-          <a href="{{ asset('admin/event/list') }}">
-            <i class="fa fa-linode"></i> <span>Sự kiện</span>
+          <a href="{{ asset('admin/project/list') }}">
+            <i class="fa fa-linode"></i> <span>Dự án</span>
+          </a>
+        </li>   
+        <li class="treeview">
+          <a href="{{ asset('admin/gallery/list') }}">
+            <i class="fa fa-file-image-o" ></i><span>Hình ảnh</span>
           </a>
         </li>        
         <li class="treeview">

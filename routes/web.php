@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/test', function () {
-    return view('client.master');
-});
+// Route::get('/test', function () {
+//     return view('client.master');
+// });
 // This project not use user login
 /*Auth::routes();
 Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@userLogout']);*/
@@ -23,7 +23,7 @@ Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@user
 //Route for client page
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',['as'=>'client.index','uses'=>'HomeController@index']);
-Route::get('/vinpearl-hoi-an',function(){ return view('client.module'); });
+Route::get('/du-an/{slug}',['as'=>'client.project','uses'=>'HomeController@getDetailProject']);
 Route::post('tu-van',['as'=>'client.consult','uses'=>'HomeController@postAddConsult']);
 Route::post('dang-ky-ban',['as'=>'client.consult','uses'=>'HomeController@postAddRegSale']);
 
@@ -55,14 +55,16 @@ Route::group(['prefix'=>'admin'], function () {
             Route::post('add',['as'=>'admin.admin.postAdd','uses'=>'AdminController@postAddAdmin']);
         });
 
-        Route::group(['prefix' => 'event'], function () {
-            Route::get('list', ['as'=>'admin.event.list','uses'=>'EventController@getList']);
-            Route::get('detail/{id}', ['as'=>'admin.event.detail','uses'=>'EventController@getDetailEvent']);
-            Route::get('add', ['as'=>'admin.event.getAdd','uses'=>'EventController@getAdd']);
-            Route::post('add', ['as'=>'admin.event.postAdd','uses'=>'EventController@postAdd']);
-            Route::get('edit/{id}', ['as'=>'admin.event.getEdit','uses'=>'EventController@getEdit']);
-            Route::post('edit/{id}', ['as'=>'admin.event.postEdit','uses'=>'EventController@postEdit']);
-            Route::delete('delete/{id}', ['as'=>'admin.event.deleteEvent','uses'=>'EventController@deleteEvent']);
+        Route::group(['prefix' => 'project'], function () {
+            Route::get('list-main-project', ['as'=>'admin.project.list-main-project','uses'=>'ProjectController@getMainProject']);
+            Route::post('add-main-project', ['as'=>'admin.project.postAddMainProject','uses'=>'ProjectController@postAddMainProject']);
+            Route::get('list', ['as'=>'admin.project.list','uses'=>'ProjectController@getList']);
+            Route::get('detail/{id}', ['as'=>'admin.project.detail','uses'=>'ProjectController@getDetailEvent']);
+            Route::get('add', ['as'=>'admin.project.getAdd','uses'=>'ProjectController@getAdd']);
+            Route::post('add', ['as'=>'admin.project.postAdd','uses'=>'ProjectController@postAdd']);
+            Route::get('edit/{id}', ['as'=>'admin.project.getEdit','uses'=>'ProjectController@getEdit']);
+            Route::post('edit/{id}', ['as'=>'admin.project.postEdit','uses'=>'ProjectController@postEdit']);
+            Route::delete('delete/{id}', ['as'=>'admin.project.deleteEvent','uses'=>'ProjectController@deleteEvent']);
         });
         Route::group(['prefix' => 'consult'], function () {
             Route::get('list', ['as'=>'admin.consult.list','uses'=>'ConsultController@getListConsult']);
@@ -71,6 +73,12 @@ Route::group(['prefix'=>'admin'], function () {
         Route::group(['prefix' => 'regsale'], function () {
             Route::get('list', ['as'=>'admin.regsale.list','uses'=>'RegisterSaleController@getListRegSale']);
             Route::get('detail/{id}', ['as'=>'admin.regsale.detail','uses'=>'RegisterSaleController@getDetailRegSale']);
+        });
+        Route::group(['prefix' => 'gallery'], function () {
+            Route::get('list', ['as'=>'admin.gallery.list','uses'=>'GalleryController@getListGallery']);
+            Route::post('add', ['as'=>'admin.gallery.postAdd','uses'=>'GalleryController@postAddImage']);
+            Route::post('edit/{id}', ['as'=>'admin.gallery.postEdit','uses'=>'GalleryController@postEditImage']);
+            Route::delete('delete/{id}', ['as'=>'admin.gallery.delImage','uses'=>'GalleryController@delImage']);
         });
     });
   });

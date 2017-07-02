@@ -9,6 +9,8 @@ class ConsultController extends Controller
 {
     public function __construct()
     {
+      $this->middleware('auth:admin');
+
     	$listConsult = $this->getAllConsult();
 
         view()->share([

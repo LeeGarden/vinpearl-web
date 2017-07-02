@@ -10,6 +10,8 @@ class RegisterSaleController extends Controller
 {
     public function __construct()
     {
+      $this->middleware('auth:admin');
+      
     	$listRegSale = $this->getAllRegisterSale();
 
         view()->share([

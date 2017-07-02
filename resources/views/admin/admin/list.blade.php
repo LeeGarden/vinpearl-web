@@ -64,4 +64,28 @@
   <!-- DataTables -->
   <script src="{{ asset('/admin') }}/plugins/datatables/jquery.dataTables.min.js"></script>
   <script src="{{ asset('/admin') }}/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script>
+  $(function(){
+    $("#data-table").DataTable({
+      "language": {
+            "lengthMenu": "Hiển thị _MENU_ mục",
+            "zeroRecords": "Không có dữ liệu",
+            "info": "Trang _PAGE_ của _PAGES_",
+            "infoEmpty": "Không có dữ liệu",
+            "infoFiltered": "(filtered from _MAX_ total records)",
+            "search": "Tìm kiếm",
+            "decimal":        "",
+            "emptyTable":     "Không có dữ liệu trong bảng",
+            "loadingRecords": "Đang tải...",
+            "processing":     "Đang xử lý...",
+            "paginate": {
+                "first":      "Đầu",
+                "last":       "Cuối",
+                "next":       "Sau",
+                "previous":   "Trước"
+            },
+        }
+    });
+  });
+  </script>
 @endsection

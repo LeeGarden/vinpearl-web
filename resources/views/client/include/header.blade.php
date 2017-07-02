@@ -1,3 +1,8 @@
+<style type="text/css">
+	.no-after::after{
+		content: ""!important;
+	}
+</style>
 <div class="box-wp clearfix">
 	<div class="header-left">
 		<a href="{{ asset('/') }}" title="VINPEARL">
@@ -17,40 +22,29 @@
 						<span>BIỆT THỰ VINPEARL</span>
 					</a>
 					<ul>
-						<li>
-							<a href="#" title="Giới thiệu">VINPEARL Hội An</a>
-							<ul>
-								<li>
-									<a href="{{ asset('/vinpearl-hoi-an') }}" title="Giới thiệu">VINPEARL Hội An</a>
-								</li>
-								<li>
-									<a href="#" title="Giới thiệu">VINPEARL Hội An</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="#" title="Giới thiệu">Vinperal Đà Nẵng</a>
-						</li>
-						<li>
-							<a href="#" title="Giới thiệu">Vinpearl Nha Trang</a>
-							<ul>
-								<li>
-									<a href="#" title="Giới thiệu">Vinpearl Nha Trang</a>
-								</li>
-								<li>
-									<a href="#" title="Giới thiệu">Vinpearl Nha Trang</a>
-								</li>
-							</ul>
-						</li>
-						<li>
-							<a href="#" title="Giới thiệu">Vinpearl Phú Quốc</a>
-						</li>
-						<li>
-							<a href="#" title="Giới thiệu">Vinpearl Sài Gòn</a>
-						</li>	
-						<li>
-							<a href="#" title="Giới thiệu">Vinpearl Đà Lạt</a>
-						</li>
+						<?php
+							use App\Http\Controllers\HomeController;
+						?>
+						@foreach ($menuParent as $mpr)
+							<?php
+								$child = HomeController::loadMenuOfParent($mpr['id']);
+							?>
+							<li>
+								<a href="#" title="Giới thiệu">{{ $mpr['name'] }}</a>
+								<ul>
+									@foreach ($child as $ch)											
+										<li>
+											<a href="{{ asset('du-an') }}/{{ $ch['slug'] }}" class="no-after" title="Giới thiệu">{{ $ch['name'] }}</a>
+										</li>
+									@endforeach
+								</ul>
+							</li>
+						@endforeach
+						@foreach ($menuNoChild as $mnc)
+							<li>
+								<a href="{{ asset('du-an') }}/{{ $mnc['slug'] }}" class="no-after" title="Giới thiệu">{{ $mnc['name'] }}</a>
+							</li>
+						@endforeach
 					</ul>
 				</li>
 				<li>
