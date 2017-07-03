@@ -1,16 +1,16 @@
 <div class="box-wp shadow">
 	<ul class="slide">
 		<li>
-            <a href="#"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+            <img src="{{ asset('client') }}/img/slide1.jpg">
         </li>
         <li>
-            <a href="#"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+            <img src="{{ asset('client') }}/img/slide2.jpg">
         </li>
         <li>
-            <a href="#"><img src="{{ asset('client') }}/img/slide3.jpg"></a>
+            <img src="{{ asset('client') }}/img/slide3.jpg">
         </li>
         <li>
-            <a href="#"><img src="{{ asset('client') }}/img/slide4.jpg"></a>
+            <img src="{{ asset('client') }}/img/slide4.jpg">
         </li>
 	</ul>
 </div>

@@ -19,6 +19,7 @@
 		<section class="section">
 			<div class="sec-03">
 				<h2 class="h2-bdb">VỊ TRÍ DỰ ÁN</h2>
+				<p class="mt-30"></p>
 				{!! $project->location->description !!}
 				<p class="mt-30 txt-center">
 					<img src="{{ asset('uploads/images') }}/{{ $project->location->image }}" alt="">
@@ -114,12 +115,14 @@
 		<section class="section">
 			<div class="sec-03">
 				<h2 class="h2-bdb">TIẾN ĐỘ THANH TOÁN</h2>
+				<p class="mt-30"></p>
 				{!! $project->payment !!}
 			</div>
 		</section>
 		<section class="section">
 			<div class="sec-03">
 				<h2 class="h2-bdb">TIẾN ĐỘ XÂY DỰNG</h2>
+				<p class="mt-30"></p>
 				{!! $project->construction !!}
 			</div>
 		</section>
@@ -127,46 +130,47 @@
 			<h2 class="h2-bdb">HÌNH ẢNH</h2>
 			<p class="mt-30 ff-none">Ưu đãi dành 8%+7% dành cho Khách hàng thanh toán sớm và hỗ trợ lãi suất 0% trong suốt 24 tháng ( 2 năm đầu không phải trả lãi và gốc ) , và nhiều phần quà giá trị khác  , Khách hàng chỉ cần có từ 200.000 USD là có thể sở hữu Biệt thự ngàn đô và hưởng chương trình cho thuê lên đến 9% của giá gốc . </p>
 			<div class="gallery clearfix">
-				<div class="gallery-left">
-					<div class="gallery-left-t-total clearfix">
-						<div class="gallery-left-t">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-1.jpg"><img src="{{ asset('client') }}/img/gallery-1.jpg" alt=""></a>
-						</div>
-						<div class="gallery-left-t">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-2.jpg"><img src="{{ asset('client') }}/img/gallery-2.jpg" alt=""></a>
-						</div>
-					</div>
-					<div class="gallery-left-b">
-						<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-3.jpg"><img src="{{ asset('client') }}/img/gallery-3.jpg" alt=""></a>
-					</div>
+					<ul class="gallery-top slider-for">
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+						</li>
+					</ul>
+					<ul class="gallery-bot slider-nav">
+						<li>
+							<img src="{{ asset('client') }}/img/slide1.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide2.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide1.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide2.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide1.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide2.jpg">
+						</li>
+					</ul>
 				</div>
-				<div class="gallery-center">
-					<div class="gallery-center-t">
-						<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-4.jpg"><img src="{{ asset('client') }}/img/gallery-4.jpg" alt=""></a>
-					</div>
-					<div class="gallery-center-t-total clearfix">
-						<div class="gallery-center-b">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-5.jpg"><img src="{{ asset('client') }}/img/gallery-5.jpg" alt=""></a>
-						</div>
-						<div class="gallery-center-b">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-6.jpg"><img src="{{ asset('client') }}/img/gallery-6.jpg" alt=""></a>
-						</div>
-					</div>
-				</div>
-				<div class="gallery-right">
-					<div class="gallery-right-t">
-						<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-7.jpg"><img src="{{ asset('client') }}/img/gallery-7.jpg" alt=""></a>
-					</div>
-					<div class="gallery-right-t-total clearfix">
-						<div class="gallery-right-b">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-8.jpg"><img src="{{ asset('client') }}/img/gallery-8.jpg" alt=""></a>
-						</div>
-						<div class="gallery-right-b">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-9.jpg"><img src="{{ asset('client') }}/img/gallery-9.jpg" alt=""></a>
-						</div>
-					</div>
-				</div>
-			</div>
 		</section>	
 	</div>	
 @endsection

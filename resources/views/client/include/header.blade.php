@@ -2,6 +2,9 @@
 	.no-after::after{
 		content: ""!important;
 	}
+	.mb-30{
+		margin-bottom: 30px;
+	}
 </style>
 <div class="box-wp clearfix">
 	<div class="header-left">
@@ -32,7 +35,7 @@
 							<li>
 								<a href="#" title="Giới thiệu">{{ $mpr['name'] }}</a>
 								<ul>
-									@foreach ($child as $ch)											
+									@foreach ($child as $ch)
 										<li>
 											<a href="{{ asset('du-an') }}/{{ $ch['slug'] }}" class="no-after" title="Giới thiệu">{{ $ch['name'] }}</a>
 										</li>

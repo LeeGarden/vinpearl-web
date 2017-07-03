@@ -5,7 +5,39 @@
 			<div class="welcome">
 				<h1><span>Welcome</span>TO VINPEARL RESORT - VILLAS</h1>
 				<p class="mt-40">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
-				<div class="box-total clearfix">
+				<div class="box-total autoplay clearfix">
+					<div class="box">
+						<div class="box-img hvr-float-shadow">
+							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
+						</div>
+						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
+						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
+						<p><a href="#">See more</a></p>
+					</div>
+					<div class="box">
+						<div class="box-img hvr-float-shadow">
+							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
+						</div>
+						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
+						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
+						<p><a href="#">See more</a></p>
+					</div>
+					<div class="box">
+						<div class="box-img hvr-float-shadow">
+							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
+						</div>
+						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
+						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
+						<p><a href="#">See more</a></p>
+					</div>
+					<div class="box">
+						<div class="box-img hvr-float-shadow">
+							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
+						</div>
+						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
+						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
+						<p><a href="#">See more</a></p>
+					</div>
 					<div class="box">
 						<div class="box-img hvr-float-shadow">
 							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
@@ -84,47 +116,48 @@
 				<h3>OUT GALLERY</h3>
 				<p class="mt-15">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
 				<div class="gallery clearfix">
-					<div class="gallery-left">
-						<div class="gallery-left-t-total clearfix">
-							<div class="gallery-left-t">
-								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-1.jpg"><img src="{{ asset('client') }}/img/gallery-1.jpg" alt=""></a>
-							</div>
-							<div class="gallery-left-t">
-								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-2.jpg"><img src="{{ asset('client') }}/img/gallery-2.jpg" alt=""></a>
-							</div>
-						</div>
-						<div class="gallery-left-b">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-3.jpg"><img src="{{ asset('client') }}/img/gallery-3.jpg" alt=""></a>
-						</div>
-					</div>
-					<div class="gallery-center">
-						<div class="gallery-center-t">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-4.jpg"><img src="{{ asset('client') }}/img/gallery-4.jpg" alt=""></a>
-						</div>
-						<div class="gallery-center-t-total clearfix">
-							<div class="gallery-center-b">
-								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-5.jpg"><img src="{{ asset('client') }}/img/gallery-5.jpg" alt=""></a>
-							</div>
-							<div class="gallery-center-b">
-								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-6.jpg"><img src="{{ asset('client') }}/img/gallery-6.jpg" alt=""></a>
-							</div>
-						</div>
-					</div>
-					<div class="gallery-right">
-						<div class="gallery-right-t">
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-7.jpg"><img src="{{ asset('client') }}/img/gallery-7.jpg" alt=""></a>
-						</div>
-						<div class="gallery-right-t-total clearfix">
-							<div class="gallery-right-b">
-								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-8.jpg"><img src="{{ asset('client') }}/img/gallery-8.jpg" alt=""></a>
-							</div>
-							<div class="gallery-right-b">
-								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/gallery-9.jpg"><img src="{{ asset('client') }}/img/gallery-9.jpg" alt=""></a>
-							</div>
-						</div>
-					</div>
+					<ul class="gallery-top slider-for">
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
+						</li>
+						<li>
+							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
+						</li>
+					</ul>
+					<ul class="gallery-bot slider-nav">
+						<li>
+							<img src="{{ asset('client') }}/img/slide1.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide2.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide1.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide2.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide1.jpg">
+						</li>
+						<li>
+							<img src="{{ asset('client') }}/img/slide2.jpg">
+						</li>
+					</ul>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</section><!-- /sec03 -->
 	<section class="sec04">

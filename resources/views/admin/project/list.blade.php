@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title')Sự kiện @endsection
+@section('title')Dự án @endsection
 
   <!-- Data table -->
   <link rel="stylesheet" href="{{ asset('admin') }}/plugins/datatables/dataTables.bootstrap.css">
@@ -7,12 +7,12 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Danh sách Sự kiện
+    Danh sách Dự án
     <small></small>
   </h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="#">Sự kiện</a></li>
+    <li><a href="#">Dự án</a></li>
     <li class="active">Danh sách</li>
   </ol>
 </section>
@@ -24,8 +24,8 @@
   <div class="box">
     <div class="box-header">
       @include('admin.include.message')
-        <a href="{{ URL::route('admin.event.getAdd') }}" class="btn btn-primary"> 
-          <i class="fa fa-plus"></i> Thêm Sự kiện</a>
+        <a href="{{ URL::route('admin.project.getAdd') }}" class="btn btn-primary"> 
+          <i class="fa fa-plus"></i> Thêm Dự án</a>
       <h3 class="box-title"></h3>
     </div>
     <!-- /.box-header -->
@@ -34,20 +34,20 @@
         <thead>
           <tr>
             <th>ID</th>
-            <th>Sự kiện</th>
+            <th>Dự án</th>
             <th>Thời gian</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($listEvent as $item)
+          @foreach ($listProject as $item)
             <tr>
               <td>{{ $item['id']}}</td>
-              <td>{{ $item['title']}}</td>
-              <td>{{ $item['date_begin']}} {{ $item['time_begin'] }}</td>
+              <td>{{ $item['name']}}</td>
+              <td>{{ $item['updated_at']}}</td>
               <td>
-                <a href="#" class="showModal" url-data="{{ asset('admin/event/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
-                <a href="{{ asset('admin/event/edit') }}/{{ $item['id'] }}" title="Edit"><i class="fa fa-cog"></i></a>
+                {{-- <a href="#" class="showModal" url-data="{{ asset('admin/event/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a> --}}
+                <a href="{{ asset('admin/project/edit') }}/{{ $item['id'] }}" title="Edit"><i class="fa fa-cog"></i></a>
                 <a href="#" title="Xóa sự kiện" id-data="{{ $item['id'] }}" class="showDelete"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
@@ -149,7 +149,7 @@
   <script type="text/javascript">
     $(".showDelete").click(function(){
       var id = $(this).attr('id-data');
-      $('#form-delete').attr('action','{{ asset('admin/event/delete') }}/'+id);
+      $('#form-delete').attr('action','{{ asset('admin/project/delete') }}/'+id);
       //show modal
       $('#modalDelete').modal('show');
 

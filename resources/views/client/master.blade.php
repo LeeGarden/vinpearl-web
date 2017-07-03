@@ -18,11 +18,10 @@
 			@include('client.include.register-sale')
 		</section><!-- /sec06 -->
 		<footer class="footer" id="contact">
-    		@include('client.include.footer')			
+    		@include('client.include.footer')
 		</footer><!-- /footer -->
 		<a href="javascript:void(0)" title="Lên đầu trang" id="go-top"></a>
 	</div>
     @include('client.include.script')
-    
 </body>
 </html>

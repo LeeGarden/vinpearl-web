@@ -59,12 +59,12 @@ Route::group(['prefix'=>'admin'], function () {
             Route::get('list-main-project', ['as'=>'admin.project.list-main-project','uses'=>'ProjectController@getMainProject']);
             Route::post('add-main-project', ['as'=>'admin.project.postAddMainProject','uses'=>'ProjectController@postAddMainProject']);
             Route::get('list', ['as'=>'admin.project.list','uses'=>'ProjectController@getList']);
-            Route::get('detail/{id}', ['as'=>'admin.project.detail','uses'=>'ProjectController@getDetailEvent']);
+            Route::get('detail/{id}', ['as'=>'admin.project.detail','uses'=>'ProjectController@getDetailProject']);
             Route::get('add', ['as'=>'admin.project.getAdd','uses'=>'ProjectController@getAdd']);
             Route::post('add', ['as'=>'admin.project.postAdd','uses'=>'ProjectController@postAdd']);
             Route::get('edit/{id}', ['as'=>'admin.project.getEdit','uses'=>'ProjectController@getEdit']);
             Route::post('edit/{id}', ['as'=>'admin.project.postEdit','uses'=>'ProjectController@postEdit']);
-            Route::delete('delete/{id}', ['as'=>'admin.project.deleteEvent','uses'=>'ProjectController@deleteEvent']);
+            Route::delete('delete/{id}', ['as'=>'admin.project.deleteProject','uses'=>'ProjectController@delProject']);
         });
         Route::group(['prefix' => 'consult'], function () {
             Route::get('list', ['as'=>'admin.consult.list','uses'=>'ConsultController@getListConsult']);

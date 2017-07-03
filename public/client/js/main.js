@@ -8,6 +8,31 @@ $('.slide').slick({
 
     autoplaySpeed: 3000
 });
+//slider2
+$('.autoplay').slick({
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  autoplay: true,
+  arrows: false,
+  autoplaySpeed: 3000
+});
+//slider3
+$('.slider-for').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  asNavFor: '.slider-nav'
+});
+$('.slider-nav').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.slider-for',
+  centerMode: true,
+  focusOnSelect: true,
+  autoplay: true,
+  autoplaySpeed: 3000
+});
 //go-top
  $(function() {
      $(window).scroll(function() {
@@ -67,6 +92,17 @@ $(document).ready(function() {
         $("#"+activeTab).fadeIn();
     });
 });
+//DateTimePicker
+$('#datetimepicker1').datetimepicker({
+    datepicker:false,
+    format:'H:i',
+    step:30
+});
+$('#datetimepicker2').datetimepicker({
+    timepicker:false,
+    format:'d/m/Y',
+});
+
 //ajax post add info consult
 $('#sendConsult').click(function(){
     var url = $(this).attr('url-data');
@@ -128,7 +164,6 @@ $('#sendRegSale').click(function(){
             $('#rs-phone').val('');
             $('#rs-message').val('');
             alert('Thông tin đăng ký mở bán đã được gửi thành công.');
-
         },
         error:function(data){
             console.log(data);

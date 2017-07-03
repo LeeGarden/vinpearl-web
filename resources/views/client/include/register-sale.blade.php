@@ -4,19 +4,11 @@
 			<div class="time-total clearfix">
 				<div class="time">
 					<p>NGÀY</p>
-					<input type="text" name="" class="inp">
+					<input type="text" name="" id="datetimepicker2" class="inp">
 				</div>
 				<div class="time">
 					<p>GIỜ</p>
-					<input type="text" name="" class="inp">
-				</div>
-				<div class="time">
-					<p>PHÚT</p>
-					<input type="text" name="" class="inp">
-				</div>
-				<div class="time">
-					<p>GIÂY</p>
-					<input type="text" name="" class="inp">
+					<input type="text" name="" id="datetimepicker1" class="inp">
 				</div>
 			</div>
 			<div class="form">
