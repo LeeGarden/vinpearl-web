@@ -1,5 +1,10 @@
 @extends('client.master')
 @section('container')
+	<style type="text/css">
+		.mh-box{
+			min-height: 280px;
+		}
+	</style>
 	<div class="box-wp">
 		<section class="section">
 			<div class="sec-01">
@@ -73,40 +78,40 @@
 				<div class="comma">
 					<img src="{{ asset('client') }}/img/comma.png" alt="">
 					<div class="box-total clearfix">
-						<div class="box">
+						<div class="box mh-box">
 							<h3>
 								<span><img src="{{ asset('client') }}/img/icon-1.png" alt=""></span>
 								{{ $project->investment->inve1->title }}
 							</h3>
-							{!! $project->investment->inve1->description !!}
+							{!! str_limit($project->investment->inve1->description,235) !!}
 						</div>
-						<div class="box">
+						<div class="box mh-box">
 							<h3>
 								<span><img src="{{ asset('client') }}/img/icon-2.png" alt=""></span>
 								{{ $project->investment->inve2->title }}
 							</h3>
-							{!! $project->investment->inve2->description !!}
+							{!! str_limit($project->investment->inve2->description,235) !!}
 						</div>
-						<div class="box">
+						<div class="box mh-box">
 							<h3>
 								<span><img src="{{ asset('client') }}/img/icon-3.png" alt=""></span>
 								{{ $project->investment->inve3->title }}
 							</h3>
-							{!! $project->investment->inve3->description !!}
+							{!! str_limit($project->investment->inve3->description,235) !!}
 						</div>
-						<div class="box">
+						<div class="box mh-box">
 							<h3>
 								<span><img src="{{ asset('client') }}/img/icon-4.png" alt=""></span>
 								{{ $project->investment->inve4->title }}
 							</h3>
-							{!! $project->investment->inve4->description !!}
+							{!! str_limit($project->investment->inve4->description,235) !!}
 						</div>
-						<div class="box">
+						<div class="box mh-box">
 							<h3>
 								<span><img src="{{ asset('client') }}/img/icon-5.png" alt=""></span>
 								{{ $project->investment->inve5->title }}
 							</h3>
-							{!! $project->investment->inve5->description !!}
+							{!! str_limit($project->investment->inve5->description,235) !!}
 						</div>
 					</div>
 				</div>

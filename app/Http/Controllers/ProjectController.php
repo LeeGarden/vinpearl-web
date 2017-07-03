@@ -134,7 +134,7 @@ class ProjectController extends Controller
     {
         $project = Project::find($id);
         $project->location         = json_decode($project->location);
-        $project->  overall_ground = json_decode($project-> overall_ground);
+        $project->overall_ground   = json_decode($project-> overall_ground);
         $project->sample_villa     = json_decode($project->sample_villa);
         $project->investment       = json_decode($project->investment);
         return view('admin.project.edit',compact('project'));
@@ -155,6 +155,11 @@ class ProjectController extends Controller
 
             $des_location = $request->des_location;
             $img_location = $this->uploadImage($request, 'img_location');
+            if($img_location == null)
+            {  
+                $project->location = json_decode($project->location);
+                $img_location = $project->location->image;
+            }
         $project->location       = json_encode(array(
             'description' => $des_location,
             'image'         => $img_location,
@@ -162,22 +167,48 @@ class ProjectController extends Controller
 
             $des_og       = $request->des_og;
             $img_og       = $this->uploadImage($request, 'img_og');
+            if($img_og == null)
+            {
+                $project->overall_ground = json_decode($project->overall_ground);
+                $img_og = $project->overall_ground->image;
+            }
         $project->overall_ground = json_encode(array(
             'description' => $des_og,
             'image'       => $img_og
         ));
 
+            $project->sample_villa = json_decode($project->sample_villa);
             $des_villas   = $request->des_villas;
             $sample1      = $request->sample1;
             $sp_img1      = $this->uploadImage($request, 'sp_img1');
+            if($sp_img1 == null)
+            {
+                $sp_img1 = $project->sample_villa->sample1->image;
+            }
             $sample2      = $request->sample2;
             $sp_img2      = $this->uploadImage($request, 'sp_img2');
+            if($sp_img2 == null)
+            {
+                $sp_img2 = $project->sample_villa->sample2->image;
+            }
             $sample3      = $request->sample3;
             $sp_img3      = $this->uploadImage($request, 'sp_img3');
+            if($sp_img3 == null)
+            {
+                $sp_img3 = $project->sample_villa->sample3->image;
+            }
             $sample4      = $request->sample4;
             $sp_img4      = $this->uploadImage($request, 'sp_img4');
+            if($sp_img4 == null)
+            {
+                $sp_img4 = $project->sample_villa->sample4->image;
+            }
             $sample5      = $request->sample5;
             $sp_img5      = $this->uploadImage($request, 'sp_img5');
+            if($sp_img5 == null)
+            {
+                $sp_img5 = $project->sample_villa->sample5->image;
+            }
         $project->sample_villa = json_encode(array(
             'description' => $des_villas,
             'sample1' => array(
@@ -277,6 +308,7 @@ class ProjectController extends Controller
 
             return $picture;
         }
+        return null;
     }
 
     public function delProject($id)
