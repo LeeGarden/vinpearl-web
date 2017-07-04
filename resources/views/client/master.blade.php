@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
 	@include('client.include.head')
+	<style type="text/css">
+		.no-after::after{
+			content: ""!important;
+		}
+	</style>
 </head>
 <body>
 	<div id="wrapper">
 		<header class="header">
-			@include('client.include.header')
+			@yield('header')
 		</header><!-- /header -->
 		<section class="slider">
 			@include('client.include.slide-top')
