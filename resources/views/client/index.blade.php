@@ -81,70 +81,16 @@
 				<h1><span>Welcome</span>TO VINPEARL RESORT - VILLAS</h1>
 				<p class="mt-40">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
 				<div class="box-total autoplay clearfix">
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
+					@foreach ($listAllProject as $item)
+						<div class="box">
+							<div class="box-img hvr-float-shadow">
+								<a href="{{ asset('du-an') }}/{{ $item['slug'] }}"><img src="{{ asset('uploads/images') }}/{{ $item->image}}" alt=""></a>
+							</div>
+							<h3>{{ $item->name }}</h3>
+							<p>{{ str_limit($item->description,93) }}</p>
+							<p><a href="{{ asset('du-an') }}/{{ $item['slug'] }}">See more</a></p>
 						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
-					<div class="box">
-						<div class="box-img hvr-float-shadow">
-							<a href="#"><img src="{{ asset('client') }}/img/vinpearl.jpg" alt=""></a>
-						</div>
-						<h3>BIỆT THỰ VINPEARL HỘI AN</h3>
-						<p>Would you like to savor the exquisite cuisine and bring the art of the dining to a new level?...</p>
-						<p><a href="#">See more</a></p>
-					</div>
+					@endforeach
 				</div>
 				<p class="txt-center"><img src="{{ asset('client') }}/img/bd-bot.png" alt=""></p>
 			</div>
@@ -241,42 +187,42 @@
 				<h3>UPCOMING EVENTS</h3>
 				<div class="box-total clearfix">
 					<div class="box-left">
-						<iframe width="475" height="280" src="https://www.youtube.com/embed/d8dCiTki6-E" frameborder="0" allowfullscreen></iframe>
+						<iframe width="475" height="280" src="{{ $first->video }}" frameborder="0" allowfullscreen></iframe>
 						<div class="bl-bot">
 							<ul class="clearfix">
 								<li>
 									<span><img src="{{ asset('client') }}/img/icon-6.png" alt=""></span>
-									{{ date('F d Y', strtotime($nearestEvent->date_begin)) }}
+									{{-- {{ date('F d Y', strtotime($nearestEvent->date_begin)) }} --}}
 								</li>
 								<li>
 									<span><img src="{{ asset('client') }}/img/icon-7.png" alt=""></span>
-									{{ $nearestEvent->time_begin }}
+									{{-- {{ $nearestEvent->time_begin }} --}}
 								</li>
 							</ul>
-							<h4>{{ $nearestEvent->title }}</h4>
-							<p>{{ $nearestEvent->content }}</p>
+							<h4>{{ $first->name }}</h4>
+							<p>{{ str_limit($first->description,225) }}</p>
 							<p>
 								<a href="#"><img src="{{ asset('client') }}/img/bt-read.png" alt=""></a>
 							</p>
 						</div>
 					</div>
 					<div class="box-right">
-						@foreach ($eventComing as $item)
+						@foreach ($list4Project as $item)
 							<div class="view">
 							<ul class="clearfix">
 								<li>
 									<span><img src="{{ asset('client') }}/img/icon-6.png" alt=""></span>
-									{{ date('F d Y', strtotime($item->date_begin)) }}
+									{{-- {{ date('F d Y', strtotime($item->date_begin)) }} --}}
 								</li>
 								<li>
 									<span><img src="{{ asset('client') }}/img/icon-7.png" alt=""></span>
-									{{ $item->time_begin }}
+									{{-- {{ $item->time_begin }} --}}
 								</li>
 							</ul>
-							<h4>{{ $item->title }}</h4>
+							<h4>{{ $item->name }}</h4>
 						</div>
 						@endforeach
-						@if(count($eventComing) >= 3)
+						@if(count($list4Project) >= 3)
 							<p class="txt-right">
 								<a href="#"><img src="{{ asset('client') }}/img/bt-view.png" alt=""></a>
 							</p>

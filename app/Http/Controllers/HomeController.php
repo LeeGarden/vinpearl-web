@@ -21,17 +21,18 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
-        $menuNoChild  = $this->loadMenuNoChild();
-        $menuParent   = $this->loadMenuParent();
+        $menuNoChild    = $this->loadMenuNoChild();
+        $menuParent     = $this->loadMenuParent();
+        $listAllProject = $this->getAllProject();
+        $list4Project   = $this->get4Project();
+        $first = $list4Project->shift();
 
-        $eventComing = $this->get4EventComing();
-        $nearestEvent = $eventComing->shift();
-        $nearestEvent->content = str_limit($nearestEvent->content,225);
         view()->share([
-            'nearestEvent' =>$nearestEvent,
-            'eventComing'  =>$eventComing,
             'menuNoChild'  =>$menuNoChild,
             'menuParent'   =>$menuParent,
+            'listAllProject' =>$listAllProject,
+            'first'          =>$first,
+            'list4Project'   =>$list4Project,
         ]);
     }
 
@@ -43,28 +44,6 @@ class HomeController extends Controller
     public function index()
     {
         return view('client.index');
-    }
-
-    public function get4EventComing()
-    {
-        $curDate = date('Y-m-d');
-        $event =  Event::whereDate('date_begin', '>=', $curDate)->orderBy('date_begin', 'ASC')->take(4)->get();
-        // dd($event->shift()->title);
-        return $event;
-    }
-
-    public function getAllEventComing()
-    {
-        $curDate = date('Y-m-d');
-        $event =  Event::whereDate('date_begin', '>=', $curDate)->orderBy('date_begin', 'ASC')->get()->toArray();
-        return $event;
-    }
-
-    public function get3EventEnded()
-    {
-        $curDate = date('Y-m-d');
-        $event =  Event::whereDate('date_begin', '<=', $curDate)->orderBy('date_begin', 'DESC')->get()->toArray();
-        return $event;
     }
 
     public function postAddConsult(Request $request)
@@ -138,5 +117,15 @@ class HomeController extends Controller
         }
         return $menuParent;
 
+    }
+    public function getAllProject()
+    {
+        $list = Project::get();
+        return $list;
+    }
+    public function get4Project()
+    {
+        $list4Project = Project::orderBy('updated_at', 'desc')->take(4)->get();
+        return $list4Project;
     }
 }

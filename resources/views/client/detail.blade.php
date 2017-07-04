@@ -9,64 +9,44 @@
 		<div class="header-right">
 			<nav class="navigation" role="navigation">
 				<ul>
+					<li>
+						<a href="{{ asset('/') }}" title="Trang chủ" class="hvr-underline-from-left">
+							<span>TRANG CHỦ</span>
+						</a>
+					</li>
 					<li class="active">
 						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>GIỚI THIỆU</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
-							<span>BIỆT THỰ VINPEARL</span>
-						</a>
-						<ul>
-							<?php
-								use App\Http\Controllers\HomeController;
-							?>
-							@foreach ($menuParent as $mpr)
-								<?php
-									$child = HomeController::loadMenuOfParent($mpr['id']);
-								?>
-								<li>
-									<a href="#" title="Giới thiệu">{{ $mpr['name'] }}</a>
-									<ul>
-										@foreach ($child as $ch)
-											<li>
-												<a href="{{ asset('du-an') }}/{{ $ch['slug'] }}" class="no-after" title="Giới thiệu">{{ $ch['name'] }}</a>
-											</li>
-										@endforeach
-									</ul>
-								</li>
-							@endforeach
-							@foreach ($menuNoChild as $mnc)
-								<li>
-									<a href="{{ asset('du-an') }}/{{ $mnc['slug'] }}" class="no-after" title="Giới thiệu">{{ $mnc['name'] }}</a>
-								</li>
-							@endforeach
-						</ul>
-					</li>
-					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
-							<span>CĂN HỘ VINPEARL</span>
+						<a href="#location" title="Vị trí dự án" class="hvr-underline-from-left">
+							<span>VỊ TRÍ DỰ ÁN</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
-							<span>LỢI ÍCH ĐẦU TƯ</span>
+						<a href="#overall_ground" title="Mặt bằng dự án" class="hvr-underline-from-left">
+							<span>MẶT BẰNG DỰ ÁN</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
-							<span>TIẾN ĐỘ DỰ ÁN</span>
+						<a href="#sample_villas" title="Các mẫu villas" class="hvr-underline-from-left">
+							<span>CÁC MẪU VILLAS</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
-							<span>TIN TỨC SỰ KIỆN</span>
+						<a href="#investment" title="Chính sách đầu tư" class="hvr-underline-from-left">
+							<span>CHÍNH SÁCH ĐẦU TƯ</span>
 						</a>
 					</li>
 					<li>
-						<a href="#contact" title="Giới thiệu" class="hvr-underline-from-left">
-							<span>LIÊN HỆ</span>
+						<a href="#payment_prg" title="Tiến độ thanh toán" class="hvr-underline-from-left">
+							<span>TIẾN ĐỘ THANH TOÁN</span>
+						</a>
+					</li>
+					<li>
+						<a href="#constr_prg" title="Tiến độ xây dựng" class="hvr-underline-from-left">
+							<span>TIẾN ĐỘ XÂY DỰNG</span>
 						</a>
 					</li>
 				</ul>
@@ -97,7 +77,7 @@
 			</div>
 		</section>
 		<section class="section">
-			<div class="sec-03">
+			<div class="sec-03" id="location">
 				<h2 class="h2-bdb">VỊ TRÍ DỰ ÁN</h2>
 				<p class="mt-30"></p>
 				{!! $project->location->description !!}
@@ -106,7 +86,7 @@
 				</p>
 			</div>	
 		</section>
-		<section class="section">
+		<section class="section" id="overall_ground">
 			<div class="sec-03">
 				<h2 class="h2-bdb">MẶT BẰNG TỔNG THỂ DỰ ÁN</h2>
 				{!! $project->overall_ground->description !!}
@@ -117,7 +97,7 @@
 		</section>
 		<section class="section">
 			<div class="sec-03">
-				<h2 class="h2-bdb">CÁC MẪU VILLAS</h2>
+				<h2 class="h2-bdb" id="sample_villas">CÁC MẪU VILLAS</h2>
 				<p class="mt-30">{{ $project->sample_villa->description }}</p>
 				<ul class="tabs clearfix mt-45">
 					<li rel="tab1" class="active">{{ $project->sample_villa->sample1->title }}</li>
@@ -146,7 +126,7 @@
 			</div>
 		</section>
 		<section class="section">
-			<div class="benefits">
+			<div class="benefits"  id="investment">
 				<div class="bd-lr2">
 					<h2>CHÍNH SÁCH ĐẦU TƯ</h2>
 				</div>
@@ -193,7 +173,7 @@
 			</div>
 		</section>
 		<section class="section">
-			<div class="sec-03">
+			<div class="sec-03"  id="payment_prg">
 				<h2 class="h2-bdb">TIẾN ĐỘ THANH TOÁN</h2>
 				<p class="mt-30"></p>
 				{!! $project->payment !!}
@@ -201,7 +181,7 @@
 		</section>
 		<section class="section">
 			<div class="sec-03">
-				<h2 class="h2-bdb">TIẾN ĐỘ XÂY DỰNG</h2>
+				<h2 class="h2-bdb" id="constr_prg">TIẾN ĐỘ XÂY DỰNG</h2>
 				<p class="mt-30"></p>
 				{!! $project->construction !!}
 			</div>

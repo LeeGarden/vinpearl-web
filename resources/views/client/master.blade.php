@@ -6,6 +6,9 @@
 		.no-after::after{
 			content: ""!important;
 		}
+		.navigation > ul > li a span {
+		    font-size: 80%;
+		}
 	</style>
 </head>
 <body>
