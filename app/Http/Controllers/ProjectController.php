@@ -37,6 +37,7 @@ class ProjectController extends Controller
         $project->name           = $request->name;
         $project->slug           = str_slug($request->name);
         $project->description    = $request->description;
+        $project->image          = $this->uploadImage($request, 'image');
         $project->video          = str_replace('watch?v=', 'embed/', $request->link_video);
         $project->overview       = $request->overview;
         $project->payment        = $request->payment;
@@ -147,6 +148,11 @@ class ProjectController extends Controller
         $project->name           = $request->name;
         $project->slug           = str_slug($request->name);
         $project->description    = $request->description;
+        $image = $this->uploadImage($request, 'image');
+        if ($image == null) {
+            $image = $project->image;
+        }
+        $project->image          = $image;
         $project->video          = str_replace('watch?v=', 'embed/', $request->link_video);
         $project->overview       = $request->overview;
         $project->payment        = $request->payment;
@@ -156,7 +162,7 @@ class ProjectController extends Controller
             $des_location = $request->des_location;
             $img_location = $this->uploadImage($request, 'img_location');
             if($img_location == null)
-            {  
+            {
                 $project->location = json_decode($project->location);
                 $img_location = $project->location->image;
             }

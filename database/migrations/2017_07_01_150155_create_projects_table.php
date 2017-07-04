@@ -17,6 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
+            $table->text('image');
             $table->string('video');
             $table->text('description');
             // $table->date('date_begin')->nullable();
@@ -28,7 +29,6 @@ class CreateProjectsTable extends Migration
             $table->text('investment');
             $table->text('payment');
             $table->text('construction');
-            // $table->text('images');
             $table->integer('admin_id')->unsigned();
             $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->integer('mainproject_id')->unsigned()->nullable();

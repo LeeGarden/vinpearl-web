@@ -95,6 +95,15 @@
                     </div>
                     <!-- /.form group -->
                     <div class="form-group">
+                      <label for="image" class="col-sm-3 control-label">Ảnh hiện thị</label>
+
+                      <div class="input-group col-sm-5">
+                        <input type="file" class="form-control" name="image" id="image" accept="image/*">
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- /.form group -->
+                    <div class="form-group">
                       <label for="link_video" class="col-sm-3 control-label">Link video yotube</label>
 
                       <div class="input-group col-sm-5">
