@@ -102,7 +102,8 @@ $('#datetimepicker2').datetimepicker({
     timepicker:false,
     format:'d/m/Y',
 });
-
+//WOW
+new WOW().init();
 //ajax post add info consult
 $('#sendConsult').click(function(){
     var url = $(this).attr('url-data');
