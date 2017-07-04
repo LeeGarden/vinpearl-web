@@ -4,4 +4,5 @@
 <script type="text/javascript" src="{{ asset('client') }}/js/fancybox/helpers/jquery.fancybox-buttons.js"></script>
 <script type="text/javascript" src="{{ asset('client') }}/js/fancybox/helpers/jquery.fancybox-thumbs.js"></script>
 <script type="text/javascript" src="{{ asset('client') }}/js/datetimepicker/jquery.datetimepicker.full.js"></script>
+<script type="text/javascript" src="{{ asset('client') }}/js/wow.min.js"></script>
 <script type="text/javascript" src="{{ asset('client') }}/js/main.js"></script>

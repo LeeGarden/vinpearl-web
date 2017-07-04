@@ -25,7 +25,13 @@
 		<footer class="footer" id="contact">
     		@include('client.include.footer')
 		</footer><!-- /footer -->
+
 		<a href="javascript:void(0)" title="Lên đầu trang" id="go-top"></a>
+		<div id="hotline">
+			<div data-wow-delay="1.5s" class="wow animate bounceInLeft animated">
+				<h3>Hotline: 0936.186.118</h3>
+			</div>
+		</div>
 	</div>
     @include('client.include.script')
 </body>
