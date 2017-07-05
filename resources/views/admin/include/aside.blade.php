@@ -33,7 +33,7 @@
             <i class="fa fa-dashboard"></i> <span>Trang chính</span>
           </a>
         </li>
-        <li class="treeview">
+        {{-- <li class="treeview">
           <a href="#">
             <i class="fa fa-microchip"></i> <span>System Managerment</span>
             <span class="pull-right-container">
@@ -44,10 +44,15 @@
             <li class="active"><a href="{{ asset('admin/role/list') }}"><i class="fa fa-circle-o"></i>Role</a></li>
             <li><a href="{{ asset('admin/admin/list') }}"><i class="fa fa-user-circle-o"></i>Admin</a></li>
           </ul>
-        </li>
+        </li> --}}
         <li class="treeview">
           <a href="{{ asset('admin/project/list') }}">
             <i class="fa fa-linode"></i> <span>Dự án</span>
+          </a>
+        </li>   
+        <li class="treeview">
+          <a href="{{ asset('admin/apartment/list') }}">
+            <i class="fa fa-home"></i> <span>Căn hộ</span>
           </a>
         </li>   
         <li class="treeview">
