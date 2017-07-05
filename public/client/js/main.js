@@ -104,6 +104,16 @@ $('#datetimepicker2').datetimepicker({
 });
 //WOW
 new WOW().init();
+//header
+$(function(){
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 0){
+            $('.header').addClass('fixed');
+        }else{
+            $('.header').removeClass('fixed');
+        }
+    });
+});
 //ajax post add info consult
 $('#sendConsult').click(function(){
     var url = $(this).attr('url-data');

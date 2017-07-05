@@ -1,6 +1,7 @@
 <div class="box-wp clearfix">
 	<div class="register">
 		<h3>ĐĂNG KÝ MỞ BÁN</h3>
+		<form>
 			<div class="time-total clearfix">
 				<div class="time">
 					<p>NGÀY</p>
@@ -33,5 +34,6 @@
 				</div>
 			</div>
 			<button type="submit" id="sendRegSale" class="inp-sm" url-data="{{ asset('/dang-ky-ban') }}" data-token="{{ csrf_token() }}">GỬI ĐI</button>
+		</form
 	</div>
 </div>

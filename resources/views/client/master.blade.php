@@ -2,14 +2,6 @@
 <html lang="en">
 <head>
 	@include('client.include.head')
-	<style type="text/css">
-		.no-after::after{
-			content: ""!important;
-		}
-		.navigation > ul > li a span {
-		    font-size: 80%;
-		}
-	</style>
 </head>
 <body>
 	<div id="wrapper">
@@ -25,6 +17,9 @@
 		<section class="pg-bottom">
 			@include('client.include.register-sale')
 		</section><!-- /sec06 -->
+		<section class="sec05">
+			@include('client.include.company')
+		</section><!-- /sec05 -->
 		<footer class="footer" id="contact">
     		@include('client.include.footer')
 		</footer><!-- /footer -->

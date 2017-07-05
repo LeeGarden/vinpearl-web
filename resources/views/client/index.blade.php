@@ -1,6 +1,6 @@
 @extends('client.master')
 @section('header')
-	<div class="box-wp clearfix">
+	<div class="box-wp-2 clearfix">
 		<div class="header-left">
 			<a href="{{ asset('/') }}" title="VINPEARL">
 				<img src="{{ asset('client') }}/img/logo.png" alt="VINPEARL" />
@@ -76,7 +76,7 @@
 @endsection
 @section('container')
 	<section class="sec01">
-		<div class="box-wp">
+		<div class="box-wp-2">
 			<div class="welcome">
 				<h1><span>Welcome</span>TO VINPEARL RESORT - VILLAS</h1>
 				<p class="mt-40">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
@@ -97,7 +97,7 @@
 		</div>
 	</section><!-- /sec01 -->
 	<section class="sec02">
-		<div class="box-wp">
+		<div class="box-wp-2">
 			<div class="benefits">
 				<div class="bd-lr">
 					<h2>LỢI ÍCH ĐẦU TƯ</h2>
@@ -132,7 +132,7 @@
 		</div>
 	</section><!-- /sec02 -->
 	<section class="sec03">
-		<div class="box-wp">
+		<div class="box-wp-2">
 			<div class="out-gallery">
 				<h3>OUT GALLERY</h3>
 				<p class="mt-15">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
@@ -232,15 +232,4 @@
 			</div>
 		</div>
 	</section><!-- /sec04 -->
-	<section class="sec05">
-		<div class="box-wp">
-			<div class="trademark">
-				<h2>CÁC ĐƠN VỊ TƯ VẤN THIẾT KẾ VÀ THI CÔNG</h2>
-				<p>We accomplish individual projects</p>
-				<div class="trademark-slide">
-					<img src="{{ asset('client') }}/img/trademark.jpg" alt="">
-				</div>
-			</div>
-		</div>
-	</section><!-- /sec05 -->
 @endsection

@@ -1,4 +1,4 @@
-<div class="box-wp shadow">
+<div class="shadow">
 	<ul class="slide">
 		<li>
             <img src="{{ asset('client') }}/img/slide1.jpg">
