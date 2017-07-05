@@ -202,7 +202,7 @@
 							<h4>{{ $first->name }}</h4>
 							<p>{{ str_limit($first->description,225) }}</p>
 							<p>
-								<a href="#"><img src="{{ asset('client') }}/img/bt-read.png" alt=""></a>
+								<a href="{{ asset('du-an') }}/{{ $first->slug }}"><img src="{{ asset('client') }}/img/bt-read.png" alt=""></a>
 							</p>
 						</div>
 					</div>
@@ -219,7 +219,7 @@
 									{{-- {{ $item->time_begin }} --}}
 								</li>
 							</ul>
-							<h4>{{ $item->name }}</h4>
+							<h4><a href="{{ asset('du-an') }}/{{ $item->slug }}">{{ $item->name }}</a></h4>
 						</div>
 						@endforeach
 						@if(count($list4Project) >= 3)
