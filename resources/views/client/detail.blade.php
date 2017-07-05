@@ -50,17 +50,17 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
+						<a href="#invest" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>LỢI ÍCH ĐẦU TƯ</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
+						<a href="#payment" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>TIẾN ĐỘ DỰ ÁN</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
+						<a href="#event" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>TIN TỨC SỰ KIỆN</span>
 						</a>
 					</li>
@@ -81,13 +81,15 @@
 				<h1>Welcome <p>TO {{ $project->name }}</p></h1>
 				<p>{!! $project->description !!}</p>
 			</div>
-			<div class="sec-02 clearfix">
-				<div class="box-left">
-					<iframe width="505" height="305" src="{{ $project->video }}" frameborder="0" allowfullscreen></iframe>
-				</div>
-				<div class="box-right">
-					<h2>TỔNG QUAN</h2>
-					{!! $project->overview !!}
+			<div class="box-wp">
+				<div class="sec-02 clearfix">
+					<div class="box-left">
+						<iframe width="505" height="305" src="{{ $project->video }}" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="box-right">
+						<h2>TỔNG QUAN</h2>
+						{!! $project->overview !!}
+					</div>
 				</div>
 			</div>
 		</section>
@@ -114,33 +116,35 @@
 			<div class="sec-03">
 				<h2 class="h2-bdb" id="sample_villas">CÁC MẪU VILLAS</h2>
 				<p class="mt-30">{{ $project->sample_villa->description }}</p>
-				<ul class="tabs clearfix mt-45">
-					<li rel="tab1" class="active">{{ $project->sample_villa->sample1->title }}</li>
-					<li rel="tab2">{{ $project->sample_villa->sample2->title }}</li>
-					<li rel="tab3">{{ $project->sample_villa->sample3->title }}</li>
-					<li rel="tab4">{{ $project->sample_villa->sample4->title }}</li>
-					<li rel="tab5">{{ $project->sample_villa->sample5->title }}</li>
-				</ul>
-				<div class="tab_container">
-					<div class="tab_content" id="tab1">
-						<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample1->image }}" alt="">
-					</div>
-					<div class="tab_content" id="tab2">
-						<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample2->image }}" alt="">
-					</div>
-					<div class="tab_content" id="tab3">
-						<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample3->image }}" alt="">
-					</div>
-					<div class="tab_content" id="tab4">
-						<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample4->image }}" alt="">
-					</div>
-					<div class="tab_content" id="tab5">
-						<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample5->image }}" alt="">
+				<div class="box-wp">
+					<ul class="tabs clearfix mt-45">
+						<li rel="tab1" class="active">{{ $project->sample_villa->sample1->title }}</li>
+						<li rel="tab2">{{ $project->sample_villa->sample2->title }}</li>
+						<li rel="tab3">{{ $project->sample_villa->sample3->title }}</li>
+						<li rel="tab4">{{ $project->sample_villa->sample4->title }}</li>
+						<li rel="tab5">{{ $project->sample_villa->sample5->title }}</li>
+					</ul>
+					<div class="tab_container">
+						<div class="tab_content" id="tab1">
+							<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample1->image }}" alt="">
+						</div>
+						<div class="tab_content" id="tab2">
+							<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample2->image }}" alt="">
+						</div>
+						<div class="tab_content" id="tab3">
+							<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample3->image }}" alt="">
+						</div>
+						<div class="tab_content" id="tab4">
+							<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample4->image }}" alt="">
+						</div>
+						<div class="tab_content" id="tab5">
+							<img src="{{ asset('uploads/images') }}/{{ $project->sample_villa->sample5->image }}" alt="">
+						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		<section class="section">
+		<section class="section" id="invest">
 			<div class="benefits"  id="investment">
 				<div class="bd-lr2">
 					<h2>CHÍNH SÁCH ĐẦU TƯ</h2>
@@ -187,8 +191,8 @@
 				</div>
 			</div>
 		</section>
-		<section class="section">
-			<div class="sec-03"  id="payment_prg">
+		<section class="section" id="payment">
+			<div class="sec-03">
 				<h2 class="h2-bdb">TIẾN ĐỘ THANH TOÁN</h2>
 				<p class="mt-30"></p>
 				{!! $project->payment !!}
@@ -196,7 +200,7 @@
 		</section>
 		<section class="section">
 			<div class="sec-03">
-				<h2 class="h2-bdb" id="constr_prg">TIẾN ĐỘ XÂY DỰNG</h2>
+				<h2 class="h2-bdb">TIẾN ĐỘ XÂY DỰNG</h2>
 				<p class="mt-30"></p>
 				{!! $project->construction !!}
 			</div>
@@ -204,7 +208,8 @@
 		<section class="out-gallery">
 			<h2 class="h2-bdb">HÌNH ẢNH</h2>
 			<p class="mt-30 ff-none">Ưu đãi dành 8%+7% dành cho Khách hàng thanh toán sớm và hỗ trợ lãi suất 0% trong suốt 24 tháng ( 2 năm đầu không phải trả lãi và gốc ) , và nhiều phần quà giá trị khác  , Khách hàng chỉ cần có từ 200.000 USD là có thể sở hữu Biệt thự ngàn đô và hưởng chương trình cho thuê lên đến 9% của giá gốc . </p>
-			<div class="gallery clearfix">
+			<div class="box-wp">
+				<div class="gallery clearfix">
 					<ul class="gallery-top slider-for">
 						<li>
 							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
@@ -246,6 +251,7 @@
 						</li>
 					</ul>
 				</div>
+			</div>
 		</section>	
 	</div>	
 @endsection

@@ -50,7 +50,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
+						<a href="#invest" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>LỢI ÍCH ĐẦU TƯ</span>
 						</a>
 					</li>
@@ -60,7 +60,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
+						<a href="#event" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>TIN TỨC SỰ KIỆN</span>
 						</a>
 					</li>
@@ -80,23 +80,25 @@
 			<div class="welcome">
 				<h1><span>Welcome</span>TO VINPEARL RESORT - VILLAS</h1>
 				<p class="mt-40">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
-				<div class="box-total autoplay clearfix">
-					@foreach ($listAllProject as $item)
-						<div class="box">
-							<div class="box-img hvr-float-shadow">
-								<a href="{{ asset('du-an') }}/{{ $item['slug'] }}"><img src="{{ asset('uploads/images') }}/{{ $item->image}}" alt=""></a>
+				<div class="box-wp">
+					<div class="box-total autoplay clearfix">
+						@foreach ($listAllProject as $item)
+							<div class="box">
+								<div class="box-img hvr-float-shadow">
+									<a href="{{ asset('du-an') }}/{{ $item['slug'] }}"><img src="{{ asset('uploads/images') }}/{{ $item->image}}" alt=""></a>
+								</div>
+								<h3>{{ $item->name }}</h3>
+								<p>{{ str_limit($item->description,93) }}</p>
+								<p><a href="{{ asset('du-an') }}/{{ $item['slug'] }}">See more</a></p>
 							</div>
-							<h3>{{ $item->name }}</h3>
-							<p>{{ str_limit($item->description,93) }}</p>
-							<p><a href="{{ asset('du-an') }}/{{ $item['slug'] }}">See more</a></p>
-						</div>
-					@endforeach
+						@endforeach
+					</div>
 				</div>
 				<p class="txt-center"><img src="{{ asset('client') }}/img/bd-bot.png" alt=""></p>
 			</div>
 		</div>
 	</section><!-- /sec01 -->
-	<section class="sec02">
+	<section class="sec02" id="invest">
 		<div class="box-wp-2">
 			<div class="benefits">
 				<div class="bd-lr">
@@ -132,7 +134,7 @@
 		</div>
 	</section><!-- /sec02 -->
 	<section class="sec03">
-		<div class="box-wp-2">
+		<div class="box-wp">
 			<div class="out-gallery">
 				<h3>OUT GALLERY</h3>
 				<p class="mt-15">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
@@ -181,7 +183,7 @@
 			</div>
 		</div>
 	</section><!-- /sec03 -->
-	<section class="sec04">
+	<section class="sec04" id="event">
 		<div class="box-wp">
 			<div class="events">
 				<h3>UPCOMING EVENTS</h3>

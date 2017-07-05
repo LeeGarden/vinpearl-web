@@ -52,7 +52,7 @@ $('.slider-nav').slick({
 $('a[href^="#"]').click(function() {
     var the_id = $(this).attr("href");
     $('html, body').animate({
-        scrollTop: $(the_id).offset().top
+        scrollTop: $(the_id).offset().top - 120
     }, 800);
     return false;
 });
