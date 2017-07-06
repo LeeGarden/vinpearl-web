@@ -66,6 +66,14 @@ Route::group(['prefix'=>'admin'], function () {
             Route::post('edit/{id}', ['as'=>'admin.project.postEdit','uses'=>'ProjectController@postEdit']);
             Route::delete('delete/{id}', ['as'=>'admin.project.deleteProject','uses'=>'ProjectController@delProject']);
         });
+        Route::group(['prefix' => 'apartment'], function () {
+            Route::get('list', ['as'=>'admin.apartment.list','uses'=>'ApartmentController@getList']);
+            Route::get('add', ['as'=>'admin.apartment.getAdd','uses'=>'ApartmentController@getAdd']);
+            Route::post('add', ['as'=>'admin.apartment.postAdd','uses'=>'ApartmentController@postAdd']);
+            Route::get('edit/{id}', ['as'=>'admin.apartment.getEdit','uses'=>'ApartmentController@getEdit']);
+            Route::post('edit/{id}', ['as'=>'admin.apartment.postEdit','uses'=>'ApartmentController@postEdit']);
+            Route::delete('delete/{id}', ['as'=>'admin.apartment.deleteProject','uses'=>'ApartmentController@delApartment']);
+        });
         Route::group(['prefix' => 'consult'], function () {
             Route::get('list', ['as'=>'admin.consult.list','uses'=>'ConsultController@getListConsult']);
             Route::get('detail/{id}', ['as'=>'admin.consult.detail','uses'=>'ConsultController@getDetailConsult']);
