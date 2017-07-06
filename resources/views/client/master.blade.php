@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 	@include('client.include.head')
+	<style type="text/css">
+		.text-upper
+		{
+			text-transform: uppercase;
+		}
+	</style>
 </head>
 <body>
 	<div id="wrapper">

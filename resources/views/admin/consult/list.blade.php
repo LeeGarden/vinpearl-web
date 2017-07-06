@@ -28,31 +28,82 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-      <table id="data-table" class="table table-bordered table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Họ & tên</th>
-            <th>Email</th>
-            <th>Điện thoại</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($listConsult as $item)
-            <tr>
-              <td>{{ $item['id']}}</td>
-              <td>{{ $item['fulname']}}</td>
-              <td>{{ $item['email']}}</td>
-              <td>{{ $item['phone']}}</td>
-              <td>
-                <a href="#" class="showModal" url-data="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
-                <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem chi tiết"><i class="fa fa-folder-open-o"></i></a>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
+      <div class="panel box box-primary">
+        <div class="box-header with-border">
+          <h4 class="box-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#unread">
+              Danh sách Chưa đọc
+            </a>
+          </h4>
+        </div>
+        <div id="unread" class="panel-collapse collapse in">
+          <table id="data-table" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Họ & tên</th>
+                <th>Email</th>
+                <th>Điện thoại</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($listConsult as $item)
+              @if ($item['status'] == 0)
+                <tr>
+                  <td>{{ $item['id']}}</td>
+                  <td>{{ $item['fulname']}}</td>
+                  <td>{{ $item['email']}}</td>
+                  <td>{{ $item['phone']}}</td>
+                  <td>
+                    <a href="#" class="showModal" url-data="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
+                    <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem chi tiết"><i class="fa fa-folder-open-o"></i></a>
+                  </td>
+                </tr>
+              @endif
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="panel box box-primary">
+        <div class="box-header with-border">
+          <h4 class="box-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#read">
+              Danh sách Đã đọc
+            </a>
+          </h4>
+        </div>
+        <div id="read" class="panel-collapse collapse">
+          <table id="data-table" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Họ & tên</th>
+                <th>Email</th>
+                <th>Điện thoại</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($listConsult as $item)
+                @if ($item['status'] == 1)
+                <tr>
+                  <td>{{ $item['id']}}</td>
+                  <td>{{ $item['fulname']}}</td>
+                  <td>{{ $item['email']}}</td>
+                  <td>{{ $item['phone']}}</td>
+                  <td>
+                    <a href="#" class="showModal" url-data="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem nhanh"><i class="fa fa-search-plus"></i></a>
+                    <a href="{{ asset('admin/consult/detail') }}/{{ $item['id'] }}" title="Xem chi tiết"><i class="fa fa-folder-open-o"></i></a>
+                  </td>
+                </tr>
+              @endif
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="modalData" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

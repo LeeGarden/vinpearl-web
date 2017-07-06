@@ -32,8 +32,8 @@ class RegisterSaleController extends Controller
 
     public function getDetailRegSale(Request $request, $id)
     {
-    	$regSale = RegisterSale::find($id)->first();
-   		if ($regSale->status != 1)
+    	$regSale = RegisterSale::where('id',$id)->first();
+   		if ($regSale->status == 0)
    		{
    			$regSale->status = 1;
    		}

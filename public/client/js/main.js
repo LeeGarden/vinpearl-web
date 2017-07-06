@@ -155,12 +155,16 @@ $('#sendRegSale').click(function(){
     var email = $('#rs-email').val();
     var phone = $('#rs-phone').val();
     var message = $('#rs-message').val();
+    var time = $('#datetimepicker1').val();
+    var date = $('#datetimepicker2').val();
     var data = {
         _token: $(this).data('token'),
         fulname : fulname,
         email: email,
         phone: phone,
-        message: message
+        message: message,
+        time: time,
+        date: date
     }
     console.log(data);
     $.ajax({

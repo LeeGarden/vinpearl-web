@@ -24,6 +24,7 @@ Route::get('user/logout',['as'=>'user.logout','uses'=>'Auth\LoginController@user
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',['as'=>'client.index','uses'=>'HomeController@index']);
 Route::get('/du-an/{slug}',['as'=>'client.project','uses'=>'HomeController@getDetailProject']);
+Route::get('/can-ho/{slug}',['as'=>'client.apartment','uses'=>'HomeController@getDetailApartment']);
 Route::post('tu-van',['as'=>'client.consult','uses'=>'HomeController@postAddConsult']);
 Route::post('dang-ky-ban',['as'=>'client.consult','uses'=>'HomeController@postAddRegSale']);
 

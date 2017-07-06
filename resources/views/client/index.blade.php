@@ -31,7 +31,7 @@
 									<ul>
 										@foreach ($child as $ch)
 											<li>
-												<a href="{{ asset('du-an') }}/{{ $ch['slug'] }}" class="no-after" title="Giới thiệu">{{ $ch['name'] }}</a>
+												<a href="{{ asset('du-an') }}/{{ $ch['slug'] }}" class="text-upper" title="Giới thiệu">{{ $ch['name'] }}</a>
 											</li>
 										@endforeach
 									</ul>
@@ -39,7 +39,7 @@
 							@endforeach
 							@foreach ($menuNoChild as $mnc)
 								<li>
-									<a href="{{ asset('du-an') }}/{{ $mnc['slug'] }}" class="no-after" title="Giới thiệu">{{ $mnc['name'] }}</a>
+									<a href="{{ asset('du-an') }}/{{ $mnc['slug'] }}" class="text-upper" title="Giới thiệu">{{ $mnc['name'] }}</a>
 								</li>
 							@endforeach
 						</ul>
@@ -48,6 +48,13 @@
 						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>CĂN HỘ VINPEARL</span>
 						</a>
+						<ul>
+							@foreach ($listApartment as $ap)
+								<li>
+									<a href="{{ asset('can-ho') }}/{{ $ap->slug }}" class="text-upper" title="Giới thiệu">{{ $ap->name }}</a>
+								</li>
+							@endforeach
+						</ul>
 					</li>
 					<li>
 						<a href="#invest" title="Giới thiệu" class="hvr-underline-from-left">
@@ -55,7 +62,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#" title="Giới thiệu" class="hvr-underline-from-left">
+						<a href="#event" title="Giới thiệu" class="hvr-underline-from-left">
 							<span>TIẾN ĐỘ DỰ ÁN</span>
 						</a>
 					</li>
@@ -140,44 +147,18 @@
 				<p class="mt-15">Would you like to savor the exquisite cuisine and bring the art of the dining to a new level? We obtain the freshest products from reputable purveyors and incorporate them into our exclusive dishes. Our menus are influenced by culinary traditions of Asia...<a href="#">See more</a></p>
 				<div class="gallery clearfix">
 					<ul class="gallery-top slider-for">
-						<li>
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
-						</li>
-						<li>
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
-						</li>
-						<li>
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
-						</li>
-						<li>
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
-						</li>
-						<li>
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide1.jpg"><img src="{{ asset('client') }}/img/slide1.jpg"></a>
-						</li>
-						<li>
-							<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('client') }}/img/slide2.jpg"><img src="{{ asset('client') }}/img/slide2.jpg"></a>
-						</li>
+						@foreach ($imageSlide as $item)
+							<li>
+								<a class="gp-fancy-box" rel="gallery-group" href="{{ asset('uploads/images') }}/{{ $item->image }}"><img src="{{ asset('uploads/images') }}/{{ $item->image }}"></a>
+							</li>
+						@endforeach
 					</ul>
 					<ul class="gallery-bot slider-nav">
-						<li>
-							<img src="{{ asset('client') }}/img/slide1.jpg">
-						</li>
-						<li>
-							<img src="{{ asset('client') }}/img/slide2.jpg">
-						</li>
-						<li>
-							<img src="{{ asset('client') }}/img/slide1.jpg">
-						</li>
-						<li>
-							<img src="{{ asset('client') }}/img/slide2.jpg">
-						</li>
-						<li>
-							<img src="{{ asset('client') }}/img/slide1.jpg">
-						</li>
-						<li>
-							<img src="{{ asset('client') }}/img/slide2.jpg">
-						</li>
+						@foreach ($imageSlide as $item)
+							<li>
+								<img src="{{ asset('uploads/images') }}/{{ $item->image }}">
+							</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>

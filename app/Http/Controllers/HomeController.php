@@ -8,6 +8,8 @@ use App\Model\Consult;
 use App\Model\RegisterSale;
 use App\Model\Project;
 use App\Model\MainProject;
+use App\Model\Gallery;
+use App\Model\Apartment;
 
 class HomeController extends Controller
 {
@@ -23,16 +25,20 @@ class HomeController extends Controller
         // $this->middleware('auth');
         $menuNoChild    = $this->loadMenuNoChild();
         $menuParent     = $this->loadMenuParent();
+        $imageSlide     = $this->loadImageSlide();
+        $listApartment   = $this->loadAllApartment();
         $listAllProject = $this->getAllProject();
         $list4Project   = $this->get4Project();
         $first = $list4Project->shift();
 
         view()->share([
-            'menuNoChild'  =>$menuNoChild,
-            'menuParent'   =>$menuParent,
-            'listAllProject' =>$listAllProject,
-            'first'          =>$first,
-            'list4Project'   =>$list4Project,
+            'menuNoChild'    => $menuNoChild,
+            'menuParent'     => $menuParent,
+            'imageSlide'     => $imageSlide,
+            'listAllProject' => $listAllProject,
+            'listApartment'  => $listApartment,
+            'first'          => $first,
+            'list4Project'   => $list4Project,
         ]);
     }
 
@@ -70,7 +76,9 @@ class HomeController extends Controller
             $regSale->email     = $request->email;
             $regSale->phone     = $request->phone;
             $regSale->message   = $request->message;
-            $regSale->date_sale = $request->date_sale;
+            $date = $request->date;
+            $time = $request->time;
+            $regSale->date_sale = date('Y-m-d H-i-s',strtotime("$date $time"));
             $regSale->status    = 0;
             $regSale->save();
             return 'ok';
@@ -127,5 +135,25 @@ class HomeController extends Controller
     {
         $list4Project = Project::orderBy('updated_at', 'desc')->take(4)->get();
         return $list4Project;
+    }
+    public function loadImageSlide()
+    {
+        $imageSlide =  Gallery::get();
+        return $imageSlide;
+    }
+    public function loadAllApartment()
+    {
+        $listApartment = Apartment::get();
+        return $listApartment;
+    }
+    public function getDetailApartment($slug)
+    {
+        $apartment =  Apartment::where('slug', $slug)->first();
+        $apartment->location = json_decode($apartment->location);
+        $apartment->overall_ground = json_decode($apartment->overall_ground);
+        $apartment->sample_villa  = json_decode($apartment->sample_villa);
+        $apartment->investment  = json_decode($apartment->investment);
+
+        return view('client.apartment',compact('apartment'));
     }
 }

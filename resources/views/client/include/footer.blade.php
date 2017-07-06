@@ -26,13 +26,11 @@
 		</div>	
 		<div class="ft-right">
 			<h3>ĐĂNG KÝ TƯ VẤN MIỄN PHÍ</h3>
-			<form action="" method="">
-				<input type="text" id="fulname" name="fulname" placeholder="*Họ và Tên" class="inp3">
-				<input type="text" id="email" name="email" placeholder="*Email" class="inp3">
-				<input type="text" id="phone" name="phone" placeholder="*Số điện thoại" class="inp3">
-				<textarea id="message" name="message" placeholder="*Tin nhắn" class="txtarea2"></textarea>
-				<button type="button" id="sendConsult" url-data="{{ asset('/tu-van') }}" data-token="{{ csrf_token() }}" class="inp-sm" >GỬI ĐI</button>
-			</form>
+			<input type="text" id="fulname" name="fulname" placeholder="*Họ và Tên" class="inp3">
+			<input type="text" id="email" name="email" placeholder="*Email" class="inp3">
+			<input type="text" id="phone" name="phone" placeholder="*Số điện thoại" class="inp3">
+			<textarea id="message" name="message" placeholder="*Tin nhắn" class="txtarea2"></textarea>
+			<button type="button" id="sendConsult" url-data="{{ asset('/tu-van') }}" data-token="{{ csrf_token() }}" class="inp-sm" >GỬI ĐI</button>
 		</div>
 	</div>
 </div>

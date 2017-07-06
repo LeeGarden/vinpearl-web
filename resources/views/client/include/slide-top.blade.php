@@ -1,16 +1,9 @@
 <div class="shadow">
 	<ul class="slide">
-		<li>
-            <img src="{{ asset('client') }}/img/slide1.jpg">
-        </li>
-        <li>
-            <img src="{{ asset('client') }}/img/slide2.jpg">
-        </li>
-        <li>
-            <img src="{{ asset('client') }}/img/slide3.jpg">
-        </li>
-        <li>
-            <img src="{{ asset('client') }}/img/slide4.jpg">
-        </li>
+		@foreach ($imageSlide as $item)
+            <li>
+                <img src="{{ asset('uploads/images') }}/{{ $item->image }}">
+            </li>
+        @endforeach
 	</ul>
 </div>
